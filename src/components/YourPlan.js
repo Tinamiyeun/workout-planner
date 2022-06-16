@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Table } from 'react-bootstrap';
-import { AdjustButton, Weight } from './Weight';
+import { AdjustButton } from './AdjustButton';
 export function YourPlan(props){
     const yourPlan = props.yourPlan; 
     const setYourPlan = props.setYourPlan; 

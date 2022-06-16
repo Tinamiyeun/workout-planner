@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 export const options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': '343a4b19camsh12ae41ffa58b431p141145jsn4b98d0e7d4a6',
+        'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
     }
   };
