@@ -1,9 +1,11 @@
-import { CustomizePlan } from './components/CustomizePlan';
+import { CustomizePlan } from 'components/CustomizePlan';
+import PlanChoices from 'components/PlanChoices';
 
 
 function App() {
   return (
-    <CustomizePlan />
+    //<CustomizePlan />
+    <PlanChoices />
   );
 }
 

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import { options, useFetch } from './useFetch';
-import Stack from 'react-bootstrap/Stack'
-import Button from 'react-bootstrap/Button'
+import { options, useFetch } from 'hooks/useFetch';
+import Stack from 'react-bootstrap/Stack';
+import Button from 'react-bootstrap/Button';
 import { ExerciseByBodyPart } from './ExerciseByBodyPart';
 
 let urlBodyParts = 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList';
