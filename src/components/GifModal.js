@@ -3,6 +3,7 @@ import { Modal, Button } from 'react-bootstrap';
 
 
 export function GifModal(props) {
+  console.log(props.exercise)
     return (
       <Modal
         {...props}

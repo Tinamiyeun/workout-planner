@@ -7,8 +7,11 @@ export function ExerciseByBodyPart(props){
 
     const [showGif, setShowGif] = useState(false);
     const [yourPlan, setYourPlan] = useState([]);
+    const [activeItem, setActiveItem] = useState();
 
-    const handleGif = () => {
+    const handleGif = (exercise) => {
+        console.log(exercise);
+        // setActiveItem(exercise);
         setShowGif(true);
     }
 
@@ -17,11 +20,10 @@ export function ExerciseByBodyPart(props){
         // console.log(yourPlan)
     }
 
-
     return <div className="col-5">
     {props.exercises?.map((exercise)=>{
         return <div key={exercise.id}>
-            <ListGroup horizontal onClick={handleGif}>
+            <ListGroup horizontal onClick={()=>handleGif(exercise)}>
                 <ListGroup.Item>{exercise.name}</ListGroup.Item>
                 <ListGroup.Item>{exercise.equipment}</ListGroup.Item>
                 <ListGroup.Item>{exercise.target}</ListGroup.Item>
