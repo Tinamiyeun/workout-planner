@@ -1,11 +1,12 @@
-import { CustomizePlan } from 'components/CustomizePlan';
-import PlanChoices from 'components/PlanChoices';
+import { CustomizePlan } from './components/CustomizePlan';
+import {Route, Routes, Navigate} from 'react-router-dom';
 
 
 function App() {
   return (
-    //<CustomizePlan />
-    <PlanChoices />
+    <Routes>
+      <Route path="/customizeplan" element={<CustomizePlan />} />
+    </Routes>
   );
 }
 

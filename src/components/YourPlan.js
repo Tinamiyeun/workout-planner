@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { AdjustButton } from './AdjustButton';
 export function YourPlan(props){
@@ -13,6 +13,9 @@ export function YourPlan(props){
         setYourPlan([...newList]);
         console.log(yourPlan);
     }
+    useEffect(()=>{
+        sessionStorage.setItem('yourPlan', yourPlan);
+    },[yourPlan]);
 
     return <div className="col-8">
     <h4>Your Plan</h4>
