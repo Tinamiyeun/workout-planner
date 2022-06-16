@@ -28,7 +28,8 @@ img{
     background-position: center;
     object-fit: cover;
     height: 500px;
-    
+    justify-content: center;
+    align-items: center;
 }
 `;
 
