@@ -1,4 +1,4 @@
-import { ListGroup, Button } from 'react-bootstrap';
+import { ListGroup, Button, Table } from 'react-bootstrap';
 import React, {useState} from 'react';
 import { GifModal } from './GifModal';
 import { YourPlan } from './YourPlan';
@@ -7,11 +7,10 @@ export function ExerciseByBodyPart(props){
 
     const [showGif, setShowGif] = useState(false);
     const [yourPlan, setYourPlan] = useState([]);
-    const [activeItem, setActiveItem] = useState();
+    const [activeItem, setActiveItem] = useState([props.exercises[0], 0, 8, 4]);
 
     const handleGif = (exercise) => {
-        console.log(exercise);
-        // setActiveItem(exercise);
+        setActiveItem(exercise);
         setShowGif(true);
     }
 
@@ -21,18 +20,30 @@ export function ExerciseByBodyPart(props){
     }
 
     return <div className="col-5">
+        <div>
+        <Table striped bordered hover responsive="true">
+        <thead>
+            <tr>
+            <th>Exercise name</th>
+            <th>Equipment</th>
+            <th>Target Muscle</th>
+            <th>Add to Your Plan</th>
+            </tr>
+        </thead>
+        <tbody>
     {props.exercises?.map((exercise)=>{
-        return <div key={exercise.id}>
-            <ListGroup horizontal onClick={()=>handleGif(exercise)}>
-                <ListGroup.Item>{exercise.name}</ListGroup.Item>
-                <ListGroup.Item>{exercise.equipment}</ListGroup.Item>
-                <ListGroup.Item>{exercise.target}</ListGroup.Item>
-            </ListGroup>
+        return <tr key={exercise.id}>
+                <td onClick={()=>handleGif(exercise)}>{exercise.name}</td>
+                <td>{exercise.equipment}</td>
+                <td>{exercise.target}</td>
             {/* <img src={exercise.gifUrl} alt="exercise gif" style={{display: showGif ? "block" : "none"}}></img> */}
-            <GifModal show={showGif} onHide={() => setShowGif(false)} exercise={exercise}/>
-            <Button variant="outline-primary" onClick={()=>handlePlusButton(exercise)}>+</Button>
-        </div>
+            <button variant="outline-primary" onClick={()=>handlePlusButton(exercise)}>+</button>
+        </tr>
     })}
-    <YourPlan yourPlan={yourPlan} setYourPlan={setYourPlan}/>
+        </tbody>
+        </Table>
+        </div>
+        <GifModal show={showGif} onHide={() => setShowGif(false)} exercise={activeItem}/>
+        <YourPlan className="col-4" yourPlan={yourPlan} setYourPlan={setYourPlan}/>
     </div>
 }

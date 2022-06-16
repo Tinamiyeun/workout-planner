@@ -1,5 +1,5 @@
-import { CustomizePlan } from './components/CustomizePlan';
-import {Route, Routes, Navigate} from 'react-router-dom';
+import { CustomizePlan } from './pages/CustomizePlan';
+import {Route, Routes} from 'react-router-dom';
 
 
 function App() {

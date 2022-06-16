@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button, Table } from 'react-bootstrap';
-import { AdjustButton } from './AdjustButton';
+import { AdjustButton } from './AdjustButton'
+;
 export function YourPlan(props){
     const yourPlan = props.yourPlan; 
     const setYourPlan = props.setYourPlan; 
@@ -13,6 +14,7 @@ export function YourPlan(props){
         setYourPlan([...newList]);
         console.log(yourPlan);
     }
+
     useEffect(()=>{
         sessionStorage.setItem('yourPlan', yourPlan);
     },[yourPlan]);

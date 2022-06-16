@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { options, useFetch } from './useFetch';
+import { options, useFetchAPI } from './useFetchAPI';
 import Stack from 'react-bootstrap/Stack'
 import Button from 'react-bootstrap/Button'
 import { ExerciseByBodyPart } from './ExerciseByBodyPart';
@@ -10,8 +10,8 @@ let urlExercises = 'https://exercisedb.p.rapidapi.com/exercises';
 export function BodyPart(){
     const [exercises, setExercises] = useState([]);
 
-    const bodyParts = useFetch(urlBodyParts, options);
-    const allExercises = useFetch(urlExercises, options)
+    const bodyParts = useFetchAPI(urlBodyParts, options);
+    const allExercises = useFetchAPI(urlExercises, options)
 
     const showExercises = (body) => {
         const filterdExercises = allExercises.filter((exercise)=>exercise.bodyPart.includes(body));
@@ -21,11 +21,13 @@ export function BodyPart(){
 
     return <>
     <div className="row">
-    <Stack className="col-1">
+    <div className="col-2">
+    <Stack>
         {bodyParts?.map((bodyPart)=>{
             return <Button key={bodyPart} variant="outline-primary" onClick={()=>showExercises(bodyPart)}>{bodyPart}</Button>
         })}
     </Stack>
+    </div>
     <ExerciseByBodyPart exercises={exercises} />
     </div>
     </>
