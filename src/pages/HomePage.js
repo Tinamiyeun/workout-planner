@@ -9,14 +9,14 @@ function HomePage() {
         <Wrapper>
             <img src={img1} alt="placeholder" />                
             <SignUp>
-                <h2>
+                <h1>
                     Sign up for more features
-                </h2>
+                </h1>
             </SignUp>
             <Box>
-                <h2>Follow the plan</h2>
-                <h2>Create your own plan</h2>
-                <h2>And MORE!</h2>
+                <Box1><h2>Follow the plan</h2></Box1>
+                <Box1><h2>Create your own plan</h2></Box1>
+                <Box1><h2>And MORE!</h2></Box1>               
             </Box>
             <Section1>
                 <img src={img2} alt="placeholder" />
@@ -29,7 +29,7 @@ function HomePage() {
                 <img src={img3} alt="placeholder" />
                 <div className="description">
                     <h2>Strength</h2>
-                    <p>Using your own bodyweight, learn how to strengthen your mind – body connection allowing you to create your OWN resistance!</p>
+                    <p>Using your own bodyweight, learn how to strengthen your mind-body connection allowing you to create your OWN resistance!</p>
                 </div>
             </Section2>
             
@@ -43,6 +43,7 @@ const Wrapper = Styled.div`
 text-align: center;
 justify-content: center;
 align-items: center;
+color: #59443F;
 img{
     width: 100%; 
     background-size: cover;
@@ -58,6 +59,7 @@ const SignUp = Styled.div`
 position: absolute;
 top: 350px;
 left: 50%;
+color: #F2F2F0;
 `;
 
 const Box = Styled.div`
@@ -65,14 +67,21 @@ display: flex;
 direction: row;
 justify-content: space-evenly;
 align-items: center;
+height: 200px;
 h2{
     width: 250px;
-    height: 250px;
     background-color: #BFB8AE;
     padding: 20px;
     justify-content: center;
     align-items: center
+    vertical-align: middle;
 }
+`;
+
+const Box1 = Styled.div`
+background-color: #BFB8AE;
+padding-top: 35px;
+padding-bottom: 35px;
 `;
 
 const Section1 = Styled.div`

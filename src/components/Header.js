@@ -20,7 +20,6 @@ const Wrapper = Styled.div`
 display: flex;
 flex-direction: row;
 background-color: #F2B705;
-
 margin-bottom: 10px;
 color: #59443F;
 justify-content: space-between;
