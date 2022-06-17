@@ -32,13 +32,16 @@ export function RegisterForm(){
             .then((data) => data.json())
             .then((json) => 
                             {alert(json.msg);
-                            json.success ? setIsLoggedIn(true) :    
-                                        setIsLoggedIn(false);
+                            if (json.success) {
+                                setIsLoggedIn(true);
+                                vipRef.current.checked ? setIsVip(true) : setIsVip(false);
+                                vipRef.current.checked ? navigate("/customizeplan") : navigate("/");
+                            }  else{
+                                setIsLoggedIn(false);
+                                navigate("/register");
+                            }
+                                        
             // json.success ? navigate("/customizeplan") : navigate("/")
-            })
-            .then(()=>{
-                vipRef.current.checked ? setIsVip(true) : setIsVip(false)
-                vipRef.current.checked ? navigate("/customizeplan") : navigate("/");
             })
     }
 
