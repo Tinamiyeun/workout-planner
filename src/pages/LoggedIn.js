@@ -1,13 +1,16 @@
-//welcome page for users. its shows the predefined plans
 import React from 'react';
 import PlanChoices from 'components/PlanChoices';
 import NavigateButton from 'components/NavigateButton';
 
+//Page when the user is logged in
+//might need to rename the page
 function LoggedIn() {
     return (
         <>
             <PlanChoices />
-            <NavigateButton redirect="/" message="Click here"/>
+            <NavigateButton redirect="customizeplan" message="Customize your plan"/>
         </>
     );
 }
+
+export default LoggedIn;

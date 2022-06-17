@@ -6,7 +6,7 @@ function NavigateButton(props) {
     let redirect = props.redirect;
     const navigate = useNavigate();
     const handleNavigate = () => {
-        navigate({redirect});
+        navigate('/'+redirect);
     };
     return (
         <Button onClick={handleNavigate}>{props.message}</Button>
