@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Button, Table } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { AdjustButton } from './AdjustButton'
 ;
 export function YourPlan(props){
@@ -12,11 +13,16 @@ export function YourPlan(props){
         const newList = yourPlan;
         newList.splice(index, 1);
         setYourPlan([...newList]);
-        console.log(yourPlan);
+    }
+
+    const navigate = useNavigate();
+    const handleStartButton = () => {
+        navigate("/workout");
     }
 
     useEffect(()=>{
-        sessionStorage.setItem('yourPlan', yourPlan);
+        window.sessionStorage.setItem('yourPlan', JSON.stringify(yourPlan));
+        // console.log(yourPlan)
     },[yourPlan]);
 
     return <div className="col-8">
@@ -45,6 +51,6 @@ export function YourPlan(props){
             })}
         </tbody>
         </Table>
-    <Button >Start</Button>
+    <Button onClick={handleStartButton}>Start</Button>
     </div>
 }
