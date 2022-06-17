@@ -1,17 +1,19 @@
+import { LoggedInContext } from '../App';
 import React, { useRef, useContext } from 'react';
 import Button from 'react-bootstrap/Button';
-import {LoggedInContext, VipContext} from "../App";
 import {useNavigate} from 'react-router-dom';
+import { VipContext } from 'contexts/VipContext';
 
 export function RegisterForm(){
 
-    const [isLoggedIn,setIsLoggedIn] = useContext(LoggedInContext);
-    const [isVip, setIsVip] = useContext(VipContext);
+    const {isLoggedIn, setIsLoggedIn} = useContext(LoggedInContext);
+    const {isVip, setIsVip} = useContext(VipContext);
 
     const usernameRef = useRef();
     const passwordRef = useRef();
     const vipRef = useRef();
     const navigate = useNavigate();
+
     const handleSubmit = (event) => {
 
         event.preventDefault();
@@ -32,11 +34,11 @@ export function RegisterForm(){
                             {alert(json.msg);
                             json.success ? setIsLoggedIn(true) :    
                                         setIsLoggedIn(false);
-                            vipRef.current.checked ? setIsVip(true) : setIsVip(false)
-            // json.success ? navigate("/") : navigate("/customizeplan")
+            // json.success ? navigate("/customizeplan") : navigate("/")
             })
             .then(()=>{
-                isVip ? navigate("/customizeplan") : navigate("/");
+                vipRef.current.checked ? setIsVip(true) : setIsVip(false)
+                vipRef.current.checked ? navigate("/customizeplan") : navigate("/");
             })
     }
 
@@ -52,11 +54,11 @@ export function RegisterForm(){
                 <label htmlFor="password">Password</label>
                 <input id="passwordReg" type="password" ref={passwordRef} required />
             </div>
-            <div>
+            <div className="mt-3">
                 <label htmlFor="vip">Want to become a VIP?</label>
                 <input id="vipReg" type="checkbox" ref={vipRef} ></input>
             </div>
-            <Button type="submit" variant="warning" className="mt-3 mb-3">Register</Button>
+            <div className="mt-3 mb-3"><Button type="submit" variant="warning">Register</Button></div>
         </form>
         </div>
     )
