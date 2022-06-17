@@ -1,0 +1,35 @@
+.navBtn{
+    margin-bottom: 10px;
+}
+.row{
+
+    margin-right:0 !important;
+}
+.tabBtn{
+    width: 100%;
+}
+.btn{
+    width: 100%;
+}
+.navList{
+    height: 100vh;
+    padding: 10px 10px 10px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid black;
+}
+.navList>div{
+    margin: auto;
+}
+.centerBox,.rightBox{
+    height: 100vh;
+    overflow-y: auto;
+    padding: 10px 10px;
+    box-sizing: border-box;
+}
+.tabBtns{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+

@@ -19,16 +19,19 @@ export function BodyPart(){
         setExercises(filterdExercises);
     }
 
-    return <>
-    <div className="row">
-    <div className="col-2">
-    <Stack>
-        {bodyParts?.map((bodyPart)=>{
-            return <Button key={bodyPart} variant="outline-primary" onClick={()=>showExercises(bodyPart)}>{bodyPart}</Button>
-        })}
-    </Stack>
-    </div>
-    <ExerciseByBodyPart exercises={exercises} />
-    </div>
-    </>
+    return (
+        <div className="row">
+            <div className="col-2 navList">
+                <Stack>
+                    {bodyParts?.map((bodyPart) => {
+                        return <Button type="submit" className="navBtn" key={bodyPart} variant="outline-secondary"
+                                       onClick={() => showExercises(bodyPart)}>{bodyPart}</Button>
+                    })}
+                </Stack>
+            </div>
+            <div className="col-10">
+                <ExerciseByBodyPart exercises={exercises}/>
+            </div>
+        </div>
+    )
 }
