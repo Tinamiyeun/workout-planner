@@ -1,5 +1,5 @@
 import React from 'react';
-import { BodyPart } from './BodyPart';
+import { BodyPart } from '../components/BodyPart';
 
 export function CustomizePlan(){
     return <>

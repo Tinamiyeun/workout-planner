@@ -8,7 +8,7 @@ export const options = {
     }
   };
 
-export function useFetch(url, options) {
+export function useFetchAPI(url, options) {
 
   const [data, setData] = useState();
 
