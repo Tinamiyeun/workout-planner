@@ -5,8 +5,13 @@ import {Workout} from './pages/Workout';
 function App() {
   return (
     <Routes>
-      <Route path="/customizeplan" element={<CustomizePlan />} />
-      <Route path="/workout" element={<Workout />} />
+      <Route path="/" element={<PageLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="about" element={<AboutUs />} />
+        <Route path="/customizeplan" element={<CustomizePlan />} />
+        <Route path="/workout" element={<Workout />} />
+        <Route path="/postworkout" element={<PostWorkoutPage />} />
+      </Route>
     </Routes>
   );
 }

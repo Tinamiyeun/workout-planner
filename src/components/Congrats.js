@@ -1,6 +1,6 @@
 //import Card from 'react-bootstrap';
 
-function PostWorkout() {
+function Congrats() {
 
     return (
         <>
@@ -9,4 +9,4 @@ function PostWorkout() {
     )
 }
 
-export default PostWorkout;
+export default Congrats;
