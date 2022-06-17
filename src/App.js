@@ -1,7 +1,7 @@
 import { Route, Routes} from 'react-router-dom';
 import PageLayout from 'layouts/PageLayout';
 import HomePage from 'pages/HomePage';
-import AboutUs from 'pages/AboutUs';
+import AboutUs from './pages/AboutUs';
 import { CustomizePlan } from './components/CustomizePlan';
 
 function App() {

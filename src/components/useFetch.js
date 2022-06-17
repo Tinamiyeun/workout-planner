@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
 export const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
-        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
-    }
-  };
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'af0e2c7d05msh339451ea440c367p1d20bajsn92b71511b7cb',
+		'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+	}
+};
 
 export function useFetch(url, options) {
 
