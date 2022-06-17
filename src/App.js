@@ -30,6 +30,9 @@ function App() {
 <Route path="about" element={<AboutUs />} />
 <Route path="customizeplan" element={<CustomizePlan />} />
 <Route path="workout" element={<Workout />} />
+<Route path="login" element={<Login />} />
+<Route path="register" element={<Register />} />
+
 
 </Route>
 </Routes>
