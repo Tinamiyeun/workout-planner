@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import {LoggedInContext} from "../App";
 import {useNavigate} from 'react-router-dom';
 import { VipContext } from 'contexts/VipContext';
+import { Form } from 'react-bootstrap';
 
 export function LoginForm(){
 
@@ -48,19 +49,19 @@ export function LoginForm(){
             }
 
     return (
-        <div className="border border-secondary">
+        <div>
             <h3>Login</h3>
-            <form onSubmit={handleSubmit}>
-                <div className="mt-3">
-                    <label htmlFor={usernameRef}>Username</label>
-                    <input id="username" type="text" ref={usernameRef} required />
-                </div>
-                <div className="mt-3">
-                <label htmlFor="password">Password</label>
-                <input id="password" type="password" ref={passwordRef} required />
-                </div>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="formUserName">
+                    <Form.Label >Username</Form.Label>
+                    <Form.Control type="text" ref={usernameRef} required />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formPassword">
+                <Form.Label >Password</Form.Label>
+                <Form.Control type="password" ref={passwordRef} required />
+                </Form.Group>
                 <Button type="submit" variant="warning" className="mt-3 mb-3">Login</Button>
-            </form>
+            </Form>
         </div>
     )
 }
