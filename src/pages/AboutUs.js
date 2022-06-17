@@ -21,7 +21,7 @@ function AboutUs() {
             <h1>Our Team</h1>
             <hr/>
             </Col>
-            <Row>
+            <Row className='contain'>
                 <Col md={8}>
                     <Image src={require('../img/img5.jpg')} alt="placeholder" className="img-fluid" /> 
                 </Col>
@@ -34,7 +34,7 @@ function AboutUs() {
                 </Col>
             </Row>
             <br/>
-            <Row>
+            <Row className='contain'>
                 <Col sm={8} className='image'>
                     <Image src={require('../img/img6.jpg')} alt="placeholder" className="img-fluid" /> 
                 </Col>
