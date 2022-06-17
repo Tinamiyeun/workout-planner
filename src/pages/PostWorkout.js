@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Upload from '../components/Upload';
 import Save from '../components/Save';
+import Container from 'react-bootstrap/Container';
+
 
 function PostWorkout(){
     return <>
@@ -12,10 +14,13 @@ function PostWorkout(){
     <br/>
     <Comment />
     <br/>
-    <Row>
-        <Col><Upload /></Col>
-        <Col><Save /></Col>
-    </Row>
+    <Container>
+        <Row>
+            <Col><Upload /></Col>
+            <Col><Save /></Col>
+        </Row>
+    </Container>
+    
     <br/>
     </>
 }
