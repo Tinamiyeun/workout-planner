@@ -8,6 +8,7 @@ import { Register } from 'pages/Register';
 import React, {useState} from 'react';
 import { Login } from 'pages/Login';
 import { VipContext } from 'contexts/VipContext';
+import { UserNameContext } from 'contexts/UserNameContext';
 
 export const LoggedInContext = React.createContext({
   isLoggedIn:false,
@@ -23,10 +24,14 @@ function App() {
   const [isVip, setIsVip] = useState(false);
   const vipToProvide = [isVip, setIsVip];
 
+  const [userName, setUserName] = useState('');
+  const userNameToProvide = [userName, setUserName];
+
   return (
 <>
     <LoggedInContext.Provider value = {loggedInValueToProvide}>
       <VipContext.Provider value = {vipToProvide}>
+        <UserNameContext.Provider value = {userNameToProvide}>
         <Routes>
           <Route path="/" element={<PageLayout />}>
             <Route index element={<HomePage />} />
@@ -37,6 +42,7 @@ function App() {
             <Route path="register" element={<Register />} />
           </Route>
         </Routes>
+        </UserNameContext.Provider>
       </VipContext.Provider>
     </LoggedInContext.Provider>
 </>

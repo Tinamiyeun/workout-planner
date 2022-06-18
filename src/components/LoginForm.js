@@ -49,7 +49,7 @@ export function LoginForm(){
                     alert("Unable to login! please try again. ")
                     navigate("/login")
                 }
-              })
+              })}
 
     return (
         <div>
@@ -67,4 +67,4 @@ export function LoginForm(){
             </Form>
         </div>
     )
-}}
+}
