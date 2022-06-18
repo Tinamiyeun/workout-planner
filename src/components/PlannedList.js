@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import Spinner from 'react-bootstrap/Spinner';
+
 import { useFetchDb } from "hooks/useFetchDb";
 import Button from 'react-bootstrap/Button';
 import { options, useFetch } from 'hooks/useFetch';
@@ -8,6 +10,7 @@ import { options, useFetch } from 'hooks/useFetch';
     const [exercises, setExercises] = useState([]);
     const [urlList, setUrlList] = useState([]);
     const [exerciseName, setExerciseName] = useState([]);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     useEffect (() => {
@@ -26,36 +29,46 @@ import { options, useFetch } from 'hooks/useFetch';
     }, [urlList])
 
     useEffect (() => {
-
+        setLoading(false);
     }, [exerciseName])
 
     const addUrl = () => {
-        let tempUrl = [];
-        exercises.map((item) => {
-            item.exercise.map((exercise) => {
-                tempUrl.push(exercise.url)
+        try{
+            let tempUrl = [];
+            exercises.map((item) => {
+                item.exercise.map((exercise) => {
+                    tempUrl.push(exercise.url)
+                })
             })
-        })
-        setUrlList(tempUrl);
+            setUrlList(tempUrl);
+            setLoading(true);
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     const fetchNames = async () => {
-        const options = {
-            method: 'GET',
-            url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
-            headers: {
-              'X-RapidAPI-Key': '082a5f6ba3mshd277027b79d445bp15ed55jsnb7c2a88adc19',
-              'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+        try{
+            const options = {
+                method: 'GET',
+                url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
+                headers: {
+                'X-RapidAPI-Key': '082a5f6ba3mshd277027b79d445bp15ed55jsnb7c2a88adc19',
+                'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+                }
             }
+            let tempName = [];
+            for (const url of urlList) {
+                const res = await fetch(url, options)
+                const data = await  res.json();
+                console.log(data);
+                tempName.push(data);
+            }
+            setExerciseName(tempName);
+            setLoading(true);
+        } catch (e) {
+            console.log('This is the error:' + e);
         }
-        let tempName = [];
-        for (const url of urlList) {
-            const res = await fetch(url, options)
-            const data = await  res.json();
-            console.log(data);
-            tempName.push(data);
-        }
-        setExerciseName(tempName);
     }
 
     /*const setData = () => {
@@ -93,6 +106,13 @@ import { options, useFetch } from 'hooks/useFetch';
     //const bodyParts = useFetch(url, options);
     return ( //useFetch and have props for url.
         <div>
+            {loading ? 
+            <>
+                <Spinner animation="border"/>
+                <p>loading</p>
+            </>
+            : 
+            <>
             <h2>{props.level}</h2>
             <ul>
                 {exerciseName?.map((name)=>{
@@ -100,6 +120,9 @@ import { options, useFetch } from 'hooks/useFetch';
                 })}
             </ul>
             <button onClick={saveExercise} >Select this plan</button>
+            </> 
+            }
+            
         </div>
     );
 }
