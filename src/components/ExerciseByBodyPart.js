@@ -38,8 +38,8 @@ export function ExerciseByBodyPart(props){
                             <td>{exercise.equipment}</td>
                             <td>{exercise.target}</td>
                             {/* <img src={exercise.gifUrl} alt="exercise gif" style={{display: showGif ? "block" : "none"}}></img> */}
-                            <Button className="tabBtn" variant="outline-secondary"
-                                    onClick={() => handlePlusButton(exercise)}>+</Button>
+                            <td><Button className="tabBtn" variant="outline-secondary"
+                                    onClick={() => handlePlusButton(exercise)}>+</Button></td>
                         </tr>
                     })}
                     </tbody>

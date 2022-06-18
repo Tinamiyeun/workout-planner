@@ -1,47 +1,57 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import { Timer } from './Timer';
 
 export function PlanList(){
     const yourPlan = window.sessionStorage.getItem('yourPlan');
-    
-    return <div className="col-3">
-    <h4>Your Plan</h4>
-    <Table bordered responsive="true">
-        <thead>
-        <td>Exercise Name</td>
-        <td>Weight</td>
-        <td>rep</td>
-        <td>set</td>
-        </thead>
-        <tbody>
-            {JSON.parse(yourPlan).map((item)=>{
-            
-                    return <tr key={item.exercise.id}>
-                    <td>{item.exercise.name}</td>
-                    <td>{item.weight}</td>
-                    <td>{item.rep}</td>
-                    <td>{item.set}</td>
+    const [currentExc, setCurrentExc] = useState({
+        exc: 0,
+        set: 0
+    })
+    const plan = JSON.parse(yourPlan);
+    // const [plan, setPlan] = useState([])
 
-                    </tr>
-                
-                
-})}
-        </tbody>
-    </Table>
-    </div>
 
-    // return <>
-    // {JSON.parse(yourPlan).map((item)=>{
-    //     console.log(item)
-    //     console.log(1)
-    //     return <div>{item.exercise.name}</div>})}
-    // </>
 
-    // return <>
-    // {[yourPlan].map((item)=>{
-    //     {item.map((exercise)=>{
-    //         return <div>{exercise}</div>
-    //     })}
-    // })}
-    // </>
+    useEffect(() =>{
+        console.log(currentExc);
+    },[currentExc])
+
+
+    // useEffect(() =>{
+    //     let plan = JSON.parse(yourPlan);
+    //     setPlan(plan);
+    // },[])
+
+
+    return <div className='p-3'>
+                <div className='row'>
+                    <div className='col-md-3'>
+                            <h4 className='text-center border p-2'>Your Plan</h4>
+                            <div style={{overflowY: 'scroll',height: '90vh'}}>
+                                {plan.map((item, excIndex) => {
+                                    return <div className='mt-2 p-2' key={item.exercise.id}>
+                                                <div className='d-flex justify-content-between border p-2'>
+                                                    <span><strong>{item.exercise.name}</strong></span> <span>{item.set} sets</span>
+                                                </div>
+                                                <Table className='table-borderless m-0 mt-1 border'>
+                                                    <tbody>
+                                                        {[...Array(item.set)].map((temp, j) => {
+                                                            // how to make key unique, item.exercise.id + j
+                                                            return <tr key={"set" + excIndex + j} className={currentExc.exc === excIndex && currentExc.set === j ? 'bg-warning' : ''}>
+
+                                                                <td>{j + 1}</td>
+                                                                <td>{item.weight} kg</td>
+                                                                <td>{item.rep} reps</td>
+                                                            </tr>
+                                                        })}
+                                                    </tbody>
+                                                </Table>
+                                            </div>
+                                })}
+                            </div>
+                    </div>
+                    <Timer currentExc={currentExc} setCurrentExc={setCurrentExc} plan={plan} />
+                </div>
+            </div>
 }
