@@ -4,7 +4,7 @@ function Footer() {
 
     return (
         <Wrapper>
-            <p>copyRight</p>
+            <p>Created by The Limit Group. ©copyright 2022</p>
         </Wrapper>
     )
 }
@@ -12,9 +12,11 @@ function Footer() {
 export default Footer;
 
 const Wrapper = Styled.div`
-display: flex;
-flex-direction: row;
-background-color: #F2B705;
-margin-top: 10px;
-color: #59443F;
+position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #F2B705;
+  color: #59445F;
+  text-align: center;
 `;

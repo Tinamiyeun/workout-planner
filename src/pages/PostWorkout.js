@@ -1,23 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Congrats from '../components/Congrats';
 import Comment from '../components/Comment';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Upload from '../components/Upload';
 import Save from '../components/Save';
 import Container from 'react-bootstrap/Container';
 
 
 function PostWorkout(){
+
+    const [comment, setComment] = useState('');
+    
+    
     return <>
     <Congrats />
     <br/>
-    <Comment />
+    <Comment setComment={setComment}/>
     <br/>
     <Container>
         <Row>
-            <Col><Upload /></Col>
-            <Col><Save /></Col>
+            <Col><Save comment={comment} /></Col>
         </Row>
     </Container>
     
