@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaCheck } from 'react-icons/fa';
+import { Button } from 'react-bootstrap';
 
 export function Timer(props){
     //props:currentExc, setCurrentExc, plan,
@@ -64,9 +65,9 @@ export function Timer(props){
                             <div className="timer" >
                                 <div className='d-flex flex-column justify-content-center align-item-center'>
                                     {timer}
-                                    <button onClick={skip} className='btn btn-light'>
+                                    <Button onClick={skip} variant="outline-warning">
                                         Skip
-                                    </button>
+                                    </Button>
                                 </div>
                             </div> : ''}
                     </div>

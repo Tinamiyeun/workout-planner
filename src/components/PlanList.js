@@ -25,8 +25,8 @@ export function PlanList(){
                                                 <div className='d-flex justify-content-between border p-2'>
                                                     <span><strong>{item.exercise.name}</strong></span> <span>{item.set} sets</span>
                                                 </div>
-                                                <Table className='table-borderless m-0 mt-1 border'>
-                                                    <tbody>
+                                                <Table className='table-borderless m-0 mt-1 border text-secondary'>
+                                                    <tbody  className='planlist-table'>
                                                         {[...Array(item.set)].map((temp, j) => {
                                                             // how to make key unique, item.exercise.id + j
                                                             return <tr key={item.exercise.id + j} className={currentExc.exc === excIndex && currentExc.set === j ? 'bg-warning' : ''}>

@@ -36,7 +36,7 @@ export function BecomeVip(){
             <Card border="warning">
                 <Card.Body>
                     <Card.Title className="text-center">VIP</Card.Title>
-                    <Card.Title className="price text-center display-1">$29.99</Card.Title>
+                    <Card.Title className="text-center display-1">$29.99</Card.Title>
                     <Card.Text>
                     You can create your own workout plan! Thousands of exercises available in our library!
                     </Card.Text>
