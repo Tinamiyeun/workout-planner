@@ -5,6 +5,7 @@ import { LoggedInContext } from "App";
 import { VipContext } from "contexts/VipContext";
 import { ThemeButton } from "./ThemeButton";
 import { LogoutButton } from "./LogoutButton";
+import '../css/bodyPart.css'
 
 function Header() {
     const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
@@ -12,24 +13,24 @@ function Header() {
 
     return (
         <Wrapper>
-            <NavLink to='/'><h1>THE LIMIT</h1></NavLink>
+            <NavLink to='/' className="navlink-header"><h1>THE LIMIT</h1></NavLink>
             <ul>
-                 <li className="me-5"><NavLink to="/">Home</NavLink></li>
-                 <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
+                 <li className="me-5 li-header"><NavLink to="/" className="navlink-header">Home</NavLink></li>
+                 <li className="me-5 li-header"><NavLink to="/about" className="navlink-header">About Us</NavLink></li>
                  {isLoggedIn?
                   isVip?
                         <>
-                        <li className="me-5"><NavLink to="/customizeplan">Create Your Own Plan</NavLink></li>
-                        <li className="me-5"><NavLink to="/">Plans</NavLink></li>
-                        <li className="me-5"><LogoutButton /></li></>
+                        <li className="me-5 li-header"><NavLink className="navlink-header" to="/customizeplan">Create Your Own Plan</NavLink></li>
+                        <li className="me-5 li-header"><NavLink className="navlink-header" to="/">Plans</NavLink></li>
+                        <li className="me-5 li-header"><LogoutButton /></li></>
                         :
                         <>
-                        <li className="me-5"><NavLink to="/">Plans</NavLink></li>
-                        <li className="me-5"><LogoutButton /></li></>
+                        <li className="me-5 li-header"><NavLink className="navlink-header" to="/">Plans</NavLink></li>
+                        <li className="me-5 li-header"><LogoutButton /></li></>
                     : 
                     <>
-                    <li className="me-5"><NavLink to="/login">Login</NavLink></li>
-                    <li className="me-5"><NavLink to="/register">Register</NavLink></li></>
+                    <li className="me-5 li-header"><NavLink className="navlink-header" to="/login">Login</NavLink></li>
+                    <li className="me-5 li-header"><NavLink className="navlink-header" to="/register">Register</NavLink></li></>
                     }
                     <ThemeButton/>
             </ul>

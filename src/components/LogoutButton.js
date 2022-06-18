@@ -17,6 +17,6 @@ export function LogoutButton(){
         console.log(isLoggedIn)
     })
     return (
-        <Button variant="primary" onClick={logout} >Logout</Button>
+        <Button variant="outline-primary" onClick={logout} >Logout</Button>
     )
 }

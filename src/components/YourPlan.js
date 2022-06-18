@@ -141,7 +141,7 @@ export function YourPlan(props){
                             <td>{item.exercise.name}</td>
                             <td><div className="tabBtns">
                                  <button onClick={()=>minusWeight(item,index)}>-</button>
-                                 {item.weight} kg
+                                 {item.weight}kg
                                  <button onClick={()=>plusWeight(item,index)}>+</button>
                                 </div></td>
                             <td><div className="tabBtns">
