@@ -7,6 +7,7 @@ import {Workout} from './pages/Workout';
 import { Register } from 'pages/Register';
 import React, {useState} from 'react';
 import { Login } from 'pages/Login';
+import PostWorkout from './pages/PostWorkout';
 
 export const LoggedInContext = React.createContext({
   isLoggedIn:false,
@@ -32,7 +33,7 @@ function App() {
 <Route path="workout" element={<Workout />} />
 <Route path="login" element={<Login />} />
 <Route path="register" element={<Register />} />
-
+<Route path="postworkout" element={<PostWorkout />} />
 
 </Route>
 </Routes>
