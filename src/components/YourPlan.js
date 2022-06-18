@@ -154,7 +154,7 @@ export function YourPlan(props){
                                  {item.set}
                                  <button onClick={()=>plusSet(item, index)}>+</button>
                                 </div></td>
-                            <td></td>
+                                <td><Button onClick={() => handleDelete(index)} className="btn-danger">delete</Button></td>
                         </tr>
                     )
                 })}
