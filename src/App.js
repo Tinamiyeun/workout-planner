@@ -29,6 +29,7 @@ function App() {
   const userNameToProvide = [userName, setUserName];
 
   return (
+<<<<<<< HEAD
     <>
         <LoggedInContext.Provider value = {loggedInValueToProvide}>
           <VipContext.Provider value = {vipToProvide}>
@@ -48,6 +49,27 @@ function App() {
           </VipContext.Provider>
         </LoggedInContext.Provider>
     </>
+=======
+<>
+    <LoggedInContext.Provider value = {loggedInValueToProvide}>
+      <VipContext.Provider value = {vipToProvide}>
+        <UserNameContext.Provider value = {userNameToProvide}>
+          <Routes>
+            <Route path="/" element={<PageLayout />}>
+              <Route index element={<HomePage />} />
+              <Route path="about" element={<AboutUs />} />
+              <Route path="loggedin" element={<PlanChoices />} />
+              <Route path="customizeplan" element={<CustomizePlan />} />
+              <Route path="workout" element={<Workout />} />
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
+            </Route>
+          </Routes>
+        </UserNameContext.Provider>
+      </VipContext.Provider>
+    </LoggedInContext.Provider>
+</>
+>>>>>>> 7dfa0a4508c34b5387a5f03e6ff6032838590503
   );
   }
 

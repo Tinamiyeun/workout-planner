@@ -3,46 +3,84 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { LoggedInContext } from "App";
 import { VipContext } from "contexts/VipContext";
+import { ThemeButton } from "./ThemeButton";
+import { LogoutButton } from "./LogoutButton";
+import '../css/bodyPart.css'
 
 function Header() {
     const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
     const [isVip, setIsVip] = useContext(VipContext);
 
-    if(isVip){
-        return (
-            <Wrapper>
-            <h1>THE LIMIT</h1>
+    return (
+        <Wrapper>
+            <NavLink to='/' className="navlink-header"><h1>THE LIMIT</h1></NavLink>
             <ul>
-                <li><NavLink to="/customizeplan">Create Your Own Plan</NavLink></li>
-                <li><NavLink to="/">Plans</NavLink></li>
-                <li><NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/about">About Us</NavLink></li>
+                 <li className="me-5 li-header"><NavLink to="/" className="navlink-header">Home</NavLink></li>
+                 <li className="me-5 li-header"><NavLink to="/about" className="navlink-header">About Us</NavLink></li>
+                 {isLoggedIn?
+                  isVip?
+                        <>
+                        <li className="me-5 li-header"><NavLink className="navlink-header" to="/customizeplan">Create Your Own Plan</NavLink></li>
+                        <li className="me-5 li-header"><NavLink className="navlink-header" to="/">Plans</NavLink></li>
+                        <li className="me-5 li-header"><LogoutButton /></li></>
+                        :
+                        <>
+                        <li className="me-5 li-header"><NavLink className="navlink-header" to="/">Plans</NavLink></li>
+                        <li className="me-5 li-header"><LogoutButton /></li></>
+                    : 
+                    <>
+                    <li className="me-5 li-header"><NavLink className="navlink-header" to="/login">Login</NavLink></li>
+                    <li className="me-5 li-header"><NavLink className="navlink-header" to="/register">Register</NavLink></li></>
+                    }
+                    <ThemeButton/>
             </ul>
         </Wrapper>
-        )
-    }
-    else if(!isVip && isLoggedIn){
-        return ( 
-        <Wrapper>
-            <h1>THE LIMIT</h1>
-            <ul>
-                <li><NavLink to="/">Plans</NavLink></li>
-                <li><NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/about">About Us</NavLink></li>
-            </ul>
-        </Wrapper>)
-    }
-    else if(!isLoggedIn){
-        return (
-            <Wrapper>
-                <h1>THE LIMIT</h1>
-                <ul>
-                    <li><NavLink to="/">Home</NavLink></li>
-                    <li><NavLink to="/about">About Us</NavLink></li>
-                </ul>
-            </Wrapper>
-        )
-    }
+        
+    )
+
+    // if(isVip){
+    //     return (
+    //         <Wrapper>
+    //         <h1>THE LIMIT</h1>
+    //         <ul>
+    //             <li className="me-5"><NavLink to="/">Home</NavLink></li>
+    //             <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
+    //             <li className="me-5"><NavLink to="/customizeplan">Create Your Own Plan</NavLink></li>
+    //             <li className="me-5"><NavLink to="/">Plans</NavLink></li>
+    //             <li className="me-5"><LogoutButton /></li>
+
+    //             <ThemeButton/>
+    //         </ul>
+    //     </Wrapper>
+    //     )
+    // }
+    // else if(!isVip && isLoggedIn){
+    //     return ( 
+    //     <Wrapper>
+    //         <h1>THE LIMIT</h1>
+    //         <ul>
+    //             <li className="me-5"><NavLink to="/">Home</NavLink></li>
+    //             <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
+                // <li className="me-5"><NavLink to="/">Plans</NavLink></li>
+                // <li className="me-5"><LogoutButton /></li>
+    //             <ThemeButton/>
+    //         </ul>
+    //     </Wrapper>)
+    // }
+    // else if(!isLoggedIn){
+    //     return (
+    //         <Wrapper>
+    //             <h1>THE LIMIT</h1>
+    //             <ul>
+    //                 <li className="me-5"><NavLink to="/">Home</NavLink></li>
+    //                 <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
+    //                 <li className="me-5"><NavLink to="/login">Login</NavLink></li>
+    //                 <li className="me-5"><NavLink to="/register">Register</NavLink></li>
+    //                 <ThemeButton/>
+    //             </ul>
+    //         </Wrapper>
+    //     )
+    // }
     
 }
 
@@ -53,7 +91,7 @@ display: flex;
 flex-direction: row;
 background-color: #F2B705;
 margin-bottom: 10px;
-color: #59443F;
+color: #59445F;
 justify-content: space-between;
 ul {
     display: flex;
