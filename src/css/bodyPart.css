@@ -63,5 +63,11 @@
 }
 
 .navlink-header {
-    color: black !important;
+    color: black ;
+
+}
+
+.li-header{
+    width: auto;
+    white-space: nowrap;
 }
