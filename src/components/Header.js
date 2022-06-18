@@ -19,6 +19,7 @@ function Header() {
                 <li className="me-5"><NavLink to="/customizeplan">Create Your Own Plan</NavLink></li>
                 <li className="me-5"><NavLink to="/">Plans</NavLink></li>
                 <li className="me-5"><NavLink to="/postworkout">POST</NavLink></li>
+                <li className="me-5"><NavLink to="/history">History</NavLink></li>
                 {/* <ThemeButton/> */}
             </ul>
         </Wrapper>
