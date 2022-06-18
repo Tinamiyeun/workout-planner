@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { LoggedInContext } from "App";
 import { VipContext } from "contexts/VipContext";
-import { ThemeButton } from "./ThemeButton";
 import { LogoutButton } from "./LogoutButton";
 import '../css/bodyPart.css'
 import { UserNameContext } from "../contexts/UserNameContext";
@@ -30,62 +29,18 @@ function Header() {
                         <>
                         <li className="me-5 li-header"><NavLink className="navlink-header" to="/upgrade">Create Your Own Plan</NavLink></li>
                         <li className="me-5 li-header"><NavLink className="navlink-header" to="/">Plans</NavLink></li>
+                        <li className="me-5 li-header"><NavLink className="navlink-header" to="/upgrade">Upgrade To VIP</NavLink></li>
+
                         <li className="me-5 li-header"><LogoutButton /></li></>
                     : 
                     <>
                     <li className="me-5 li-header"><NavLink className="navlink-header" to="/login">Login</NavLink></li>
                     <li className="me-5 li-header"><NavLink className="navlink-header" to="/register">Register</NavLink></li></>
                     }
-                    <ThemeButton/>
             </ul>
         </Wrapper>
         
     )
-
-    // if(isVip){
-    //     return (
-    //         <Wrapper>
-    //         <h1>THE LIMIT</h1>
-    //         <ul>
-    //             <li className="me-5"><NavLink to="/">Home</NavLink></li>
-    //             <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
-    //             <li className="me-5"><NavLink to="/customizeplan">Create Your Own Plan</NavLink></li>
-    //             <li className="me-5"><NavLink to="/">Plans</NavLink></li>
-    //             <li className="me-5"><LogoutButton /></li>
-
-    //             <ThemeButton/>
-    //         </ul>
-    //     </Wrapper>
-    //     )
-    // }
-    // else if(!isVip && isLoggedIn){
-    //     return ( 
-    //     <Wrapper>
-    //         <h1>THE LIMIT</h1>
-    //         <ul>
-    //             <li className="me-5"><NavLink to="/">Home</NavLink></li>
-    //             <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
-                // <li className="me-5"><NavLink to="/">Plans</NavLink></li>
-                // <li className="me-5"><LogoutButton /></li>
-    //             <ThemeButton/>
-    //         </ul>
-    //     </Wrapper>)
-    // }
-    // else if(!isLoggedIn){
-    //     return (
-    //         <Wrapper>
-    //             <h1>THE LIMIT</h1>
-    //             <ul>
-    //                 <li className="me-5"><NavLink to="/">Home</NavLink></li>
-    //                 <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
-    //                 <li className="me-5"><NavLink to="/login">Login</NavLink></li>
-    //                 <li className="me-5"><NavLink to="/register">Register</NavLink></li>
-    //                 <ThemeButton/>
-    //             </ul>
-    //         </Wrapper>
-    //     )
-    // }
-    
 }
 
 export default Header;
