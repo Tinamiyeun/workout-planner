@@ -8,7 +8,7 @@ box-sizing: border-box;
 }
 body {
     background-color: ${({ theme }) => theme.body};
-    color: ${({ theme }) => theme.text}
+    foreground-color: ${({ theme }) => theme.text}
     font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     transition: all 0.25s linear;
 }
