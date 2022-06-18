@@ -6,15 +6,18 @@ import { VipContext } from "contexts/VipContext";
 import { ThemeButton } from "./ThemeButton";
 import { LogoutButton } from "./LogoutButton";
 import '../css/bodyPart.css'
+import { UserNameContext } from "../contexts/UserNameContext";
 
 function Header() {
     const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
     const [isVip, setIsVip] = useContext(VipContext);
-
+    const [username, setUsername] = useContext(UserNameContext);
     return (
         <Wrapper>
             <NavLink to='/' className="navlink-header"><h1>THE LIMIT</h1></NavLink>
             <ul>
+                {isLoggedIn? <li className="me-5 li-header">welcome,{username}</li>:''}
+
                  <li className="me-5 li-header"><NavLink to="/" className="navlink-header">Home</NavLink></li>
                  <li className="me-5 li-header"><NavLink to="/about" className="navlink-header">About Us</NavLink></li>
                  {isLoggedIn?
