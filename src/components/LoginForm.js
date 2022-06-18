@@ -51,9 +51,9 @@ export function LoginForm(){
                 }
               })}
 
-            useEffect(() => {
-                console.log(userName)
-            })
+        // useEffect(() => {
+        //     console.log(userName)
+        // })
     return (
         <div className="container col-4">
             <h3>Login</h3>
