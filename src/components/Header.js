@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { LoggedInContext } from "App";
 import { VipContext } from "contexts/VipContext";
-import { ThemeButton } from "./ThemeButton";
+// import { ThemeButton } from "./ThemeButton";
 
 function Header() {
     const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
@@ -18,7 +18,8 @@ function Header() {
                 <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
                 <li className="me-5"><NavLink to="/customizeplan">Create Your Own Plan</NavLink></li>
                 <li className="me-5"><NavLink to="/">Plans</NavLink></li>
-                <ThemeButton/>
+                <li className="me-5"><NavLink to="/postworkout">POST</NavLink></li>
+                {/* <ThemeButton/> */}
             </ul>
         </Wrapper>
         )
@@ -31,7 +32,7 @@ function Header() {
                 <li className="me-5"><NavLink to="/">Home</NavLink></li>
                 <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
                 <li className="me-5"><NavLink to="/">Plans</NavLink></li>
-                <ThemeButton/>
+                {/* <ThemeButton/> */}
             </ul>
         </Wrapper>)
     }
@@ -44,7 +45,7 @@ function Header() {
                     <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
                     <li className="me-5"><NavLink to="/login">Login</NavLink></li>
                     <li className="me-5"><NavLink to="/register">Register</NavLink></li>
-                    <ThemeButton/>
+                    {/* <ThemeButton/> */}
                 </ul>
             </Wrapper>
         )

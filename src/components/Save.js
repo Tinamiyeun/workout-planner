@@ -7,11 +7,8 @@ function Save(props) {
     const [userName, setUserName] = useContext(UserNameContext);
 
     React.useEffect(() => {
-
-        console.log(userName)
-        
-        })
-    
+        console.log({userName})       
+        })    
     
     const yourPlan = window.sessionStorage.getItem('yourPlan');
     const comment = props.comment;
@@ -22,7 +19,7 @@ function Save(props) {
         body: JSON.stringify({//pass the value of input field here
           username: userName,
           comment: comment,
-          date: new Date().toLocaleTimeString(),
+          date: new Date(),
           exercise_records: yourPlan,
         }),
         headers: {
