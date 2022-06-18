@@ -34,9 +34,12 @@ export function LoginForm(){
             .then((json) => {
                 console.log(json);
                 if (json.success){
+                    console.log(json.user.username);
                     setUserName(json.user.username);
+                    console.log(json.user.vip);
                     setIsLoggedIn(true);
-                    alert("Logged in!");
+                    alert("Logged in!" + userName);
+                    console.log(userName);
                     if (json.user.vip){
                         setIsVip(true);
                         navigate("/customizeplan")
