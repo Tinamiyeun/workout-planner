@@ -9,6 +9,7 @@ import React, {useState} from 'react';
 import { Login } from 'pages/Login';
 import { VipContext } from 'contexts/VipContext';
 import { UserNameContext } from 'contexts/UserNameContext';
+import { Upgrade } from 'pages/Upgrade';
 
 export const LoggedInContext = React.createContext({
   isLoggedIn:false,
@@ -40,6 +41,7 @@ function App() {
               <Route path="workout" element={<Workout />} />
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
+              <Route path="upgrade" element={<Upgrade />} />
             </Route>
           </Routes>
         </UserNameContext.Provider>
