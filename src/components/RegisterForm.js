@@ -6,8 +6,8 @@ import { VipContext } from 'contexts/VipContext';
 
 export function RegisterForm(){
 
-    const {isLoggedIn, setIsLoggedIn} = useContext(LoggedInContext);
-    const {isVip, setIsVip} = useContext(VipContext);
+    const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
+    const [isVip, setIsVip] = useContext(VipContext);
 
     const usernameRef = useRef();
     const passwordRef = useRef();

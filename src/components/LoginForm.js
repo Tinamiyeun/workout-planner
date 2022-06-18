@@ -50,6 +50,11 @@ export function LoginForm(){
                     navigate("/login")
                 }
               })}
+              React.useEffect(() => {
+
+                console.log(userName)
+                
+                })
 
     return (
         <div>
