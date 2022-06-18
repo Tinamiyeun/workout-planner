@@ -3,11 +3,12 @@ import React, { useRef, useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import {useNavigate} from 'react-router-dom';
 import { VipContext } from 'contexts/VipContext';
+import { Form } from 'react-bootstrap';
 
 export function RegisterForm(){
 
-    const {isLoggedIn, setIsLoggedIn} = useContext(LoggedInContext);
-    const {isVip, setIsVip} = useContext(VipContext);
+    const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
+    const [isVip, setIsVip] = useContext(VipContext);
 
     const usernameRef = useRef();
     const passwordRef = useRef();
@@ -46,23 +47,23 @@ export function RegisterForm(){
     }
 
     return (
-        <div className="border border-secondary mt-3">
+        <div  className="container col-4">
         <h3>Register</h3>
-        <form onSubmit={handleSubmit}>
-            <div className="mt-3">
-                <label htmlFor={usernameRef}>Username</label>
-                <input id="usernameReg" type="text" ref={usernameRef} required />
-            </div>
-            <div className="mt-3">
-                <label htmlFor="password">Password</label>
-                <input id="passwordReg" type="password" ref={passwordRef} required />
-            </div>
-            <div className="mt-3">
-                <label htmlFor="vip">Want to become a VIP?</label>
-                <input id="vipReg" type="checkbox" ref={vipRef} ></input>
-            </div>
-            <div className="mt-3 mb-3"><Button type="submit" variant="warning">Register</Button></div>
-        </form>
+        <Form onSubmit={handleSubmit}>
+            <Form.Group className="mt-3">
+                <Form.Label htmlFor={usernameRef}>Username</Form.Label>
+                <Form.Control id="usernameReg" type="text" ref={usernameRef} required />
+            </Form.Group>
+            <Form.Group className="mt-3">
+                <Form.Label htmlFor="password">Password</Form.Label>
+                <Form.Control id="passwordReg" type="password" ref={passwordRef} required />
+            </Form.Group>
+            <Form.Group className="mt-3">
+                <Form.Check ref={vipRef} ></Form.Check>
+                <Form.Label>Want to become a VIP?</Form.Label>
+            </Form.Group>
+            <Button type="submit" variant="warning" className="mt-3 mb-3">Register</Button>
+        </Form>
         </div>
     )
 }

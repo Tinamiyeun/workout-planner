@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import {LoggedInContext} from "../App";
 import {useNavigate} from 'react-router-dom';
@@ -51,8 +51,11 @@ export function LoginForm(){
                 }
               })}
 
+        // useEffect(() => {
+        //     console.log(userName)
+        // })
     return (
-        <div>
+        <div className="container col-4">
             <h3>Login</h3>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formUserName">
