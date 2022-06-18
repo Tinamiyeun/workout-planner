@@ -50,8 +50,4 @@ function AboutUs() {
     )
 }
 
-<<<<<<< HEAD
 export default AboutUs;
-=======
-export default AboutUs;
->>>>>>> main
