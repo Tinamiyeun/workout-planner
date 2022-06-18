@@ -1,5 +1,5 @@
 import { Table,Button } from 'react-bootstrap';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { GifModal } from './GifModal';
 import { YourPlan } from './YourPlan';
 
@@ -15,9 +15,8 @@ export function ExerciseByBodyPart(props){
     }
 
     const handlePlusButton = (exercise) => {
-
         setYourPlan([...yourPlan, {exercise: exercise, weight: 0, rep: 8, set: 4}]);
-
+        // console.log(yourPlan)
     }
 
     return <div className="col-12">

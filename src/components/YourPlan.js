@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { AdjustButton } from './AdjustButton'
 ;
 export function YourPlan(props){
     const yourPlan = props.yourPlan; 
@@ -22,7 +21,103 @@ export function YourPlan(props){
 
     useEffect(()=>{
         window.sessionStorage.setItem('yourPlan', JSON.stringify(yourPlan));
-    },[yourPlan]);
+    },[yourPlan]);               
+
+    useEffect(()=>{
+        console.log(yourPlan)
+    },[yourPlan])
+
+    const minusWeight = (item, index)=>{
+
+        let newList = [];
+        for (let i = 0; i < yourPlan.length; i++){
+            if(i === index) {
+                newList.push({
+                    exercise: item.exercise,
+                    weight: item.weight - 1,
+                    rep: item.rep,
+                    set: item.set
+                })
+            }else{ newList.push(yourPlan[i]);}
+        }
+        setYourPlan(newList);
+    }
+
+    const plusWeight = (item, index)=>{
+        let newList = [];
+        for (let i = 0; i < yourPlan.length; i++){
+            if(i === index) {
+                newList.push({
+                    exercise: item.exercise,
+                    weight: item.weight + 1,
+                    rep: item.rep,
+                    set: item.set
+                })
+            }else{ newList.push(yourPlan[i]);}
+        }
+        setYourPlan(newList);
+    }
+
+    const minusRep = (item, index)=>{
+        let newList = [];
+        for (let i = 0; i < yourPlan.length; i++){
+            if(i === index) {
+                newList.push({
+                    exercise: item.exercise,
+                    weight: item.weight,
+                    rep: item.rep - 1,
+                    set: item.set
+                })
+            }else{ newList.push(yourPlan[i]);}
+        }
+        setYourPlan(newList);
+    }
+
+    const plusRep = (item, index)=>{
+        let newList = [];
+        for (let i = 0; i < yourPlan.length; i++){
+            if(i === index) {
+                newList.push({
+                    exercise: item.exercise,
+                    weight: item.weight,
+                    rep: item.rep + 1,
+                    set: item.set
+                })
+            }else{ newList.push(yourPlan[i]);}
+        }
+        setYourPlan(newList);
+    }
+    
+    const minusSet = (item, index)=>{
+        let newList = [];
+        for (let i = 0; i < yourPlan.length; i++){
+            if(i === index) {
+                newList.push({
+                    exercise: item.exercise,
+                    weight: item.weight,
+                    rep: item.rep,
+                    set: item.set - 1
+                })
+            }else{ newList.push(yourPlan[i]);}
+        }
+        setYourPlan(newList);
+    }
+
+    const plusSet = (item, index)=>{
+        let newList = [];
+        for (let i = 0; i < yourPlan.length; i++){
+            if(i === index) {
+                newList.push({
+                    exercise: item.exercise,
+                    weight: item.weight,
+                    rep: item.rep,
+                    set: item.set + 1
+                })
+            }else{ newList.push(yourPlan[i]);}
+        }
+        setYourPlan(newList);
+    }
+
 
     return (
         <div className="col-12">
@@ -39,15 +134,27 @@ export function YourPlan(props){
                 </tr>
                 </thead>
                 <tbody>
-                {yourPlan.map((item, index) => {
+                {yourPlan && yourPlan.map((item, index) => {
                     return (
-                        <tr key={item.exercise.id}>
+                        <tr>
                             <td>{count++}</td>
                             <td>{item.exercise.name}</td>
-                            <td><AdjustButton item={item.weight} kg="kg"/></td>
-                            <td><AdjustButton item={item.rep} kg=""/></td>
-                            <td><AdjustButton item={item.set} kg=""/></td>
-                            <td><Button onClick={() => handleDelete(index)} className="btn-danger">delete</Button></td>
+                            <td><div className="tabBtns">
+                                 <button onClick={()=>minusWeight(item,index)}>-</button>
+                                 {item.weight} kg
+                                 <button onClick={()=>plusWeight(item,index)}>+</button>
+                                </div></td>
+                            <td><div className="tabBtns">
+                                <button onClick={()=>minusRep(item, index)}>-</button>
+                                {item.rep}
+                                <button onClick={()=>plusRep(item, index)}>+</button>
+                            </div></td>
+                            <td><div className="tabBtns">
+                                 <button onClick={()=>minusSet(item, index)}>-</button>
+                                 {item.set}
+                                 <button onClick={()=>plusSet(item, index)}>+</button>
+                                </div></td>
+                            <td></td>
                         </tr>
                     )
                 })}
