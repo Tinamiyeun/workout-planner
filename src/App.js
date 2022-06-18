@@ -10,7 +10,7 @@ import { Login } from 'pages/Login';
 import { VipContext } from 'contexts/VipContext';
 import { UserNameContext } from 'contexts/UserNameContext';
 import PostWorkout from './pages/PostWorkout';
-// import History from 'pages/History';
+import History from 'pages/History';
 import { lightTheme, darkTheme } from 'components/Theme';
 import { GlobalStyles } from 'components/Global';
 import { ThemeProvider } from 'styled-components';
@@ -66,7 +66,7 @@ function App() {
               <Route path="customizeplan" element={<CustomizePlan />} />
               <Route path="workout" element={<Workout />} />
               <Route path="postworkout" element={<PostWorkout />} />
-              {/* <Route path="history" element={<History />} /> */}
+              <Route path="history" element={<History />} />
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
             </Route>

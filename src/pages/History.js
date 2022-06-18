@@ -4,19 +4,19 @@ import DisplayHistory from 'components/DisplayHistory';
 
 function History() {
 
-    // const [userName, setUserName] = useContext(UserNameContext);
+    const [userName, setUserName] = useContext(UserNameContext);
 
-    // // React.useEffect(() => {
-    // //     console.log({userName})       
-    // //     })    
+    // React.useEffect(() => {
+    //     console.log({userName})       
+    //     })    
 
-    // return (
+    return (
 
-    //     <>
-    //     <h1>{userName}'s workout history</h1>
-    //      <DisplayHistory />
-    //     </>
-    // )
+        <>
+        <h1>{userName}'s workout history</h1>
+         <DisplayHistory />
+        </>
+    )
 }
 
 export default History;
