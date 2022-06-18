@@ -7,6 +7,7 @@ import {Workout} from './pages/Workout';
 import { Register } from 'pages/Register';
 import React, {useState} from 'react';
 import { Login } from 'pages/Login';
+import { VipContext } from 'contexts/VipContext';
 
 export const LoggedInContext = React.createContext({
   isLoggedIn:false,
@@ -24,18 +25,20 @@ function App() {
 
   return (
 <>
-<Routes>
-<Route path="/" element={<PageLayout />}>
-<Route index element={<HomePage />} />
-<Route path="about" element={<AboutUs />} />
-<Route path="customizeplan" element={<CustomizePlan />} />
-<Route path="workout" element={<Workout />} />
-<Route path="login" element={<Login />} />
-<Route path="register" element={<Register />} />
-
-
-</Route>
-</Routes>
+    <LoggedInContext.Provider value = {loggedInValueToProvide}>
+      <VipContext.Provider value = {vipToProvide}>
+        <Routes>
+          <Route path="/" element={<PageLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="about" element={<AboutUs />} />
+            <Route path="customizeplan" element={<CustomizePlan />} />
+            <Route path="workout" element={<Workout />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+          </Route>
+        </Routes>
+      </VipContext.Provider>
+    </LoggedInContext.Provider>
 </>
   );
   }

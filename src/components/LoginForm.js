@@ -4,11 +4,14 @@ import {LoggedInContext} from "../App";
 import {useNavigate} from 'react-router-dom';
 import { VipContext } from 'contexts/VipContext';
 import { Form } from 'react-bootstrap';
+import {UserNameContext} from '../contexts/UserNameContext';
 
 export function LoginForm(){
 
-    const {isLoggedIn,setIsLoggedIn} = useContext(LoggedInContext);
-    const {isVip, setIsVip} = useContext(VipContext);
+    const [isLoggedIn,setIsLoggedIn] = useContext(LoggedInContext);
+    const [isVip, setIsVip] = useContext(VipContext);
+    const [userName, setUserName] = useContext(UserNameContext);
+
     const usernameRef = useRef();
     const passwordRef = useRef();
     const navigate = useNavigate();
@@ -31,6 +34,7 @@ export function LoginForm(){
             .then((json) => {
                 console.log(json);
                 if (json.success){
+                    setUserName(json.user.username);
                     setIsLoggedIn(true);
                     alert("Logged in!");
                     if (json.user.vip){
@@ -45,8 +49,7 @@ export function LoginForm(){
                     alert("Unable to login! please try again. ")
                     navigate("/login")
                 }
-              })        
-            }
+              })
 
     return (
         <div>
@@ -64,4 +67,4 @@ export function LoginForm(){
             </Form>
         </div>
     )
-}
+}}
