@@ -96,6 +96,7 @@ import { options, useFetch } from 'hooks/useFetch';
         return exerciseName;
     }*/
 
+    //change name
     const saveExercise = () => {
         window.sessionStorage.setItem('yourPlan', JSON.stringify(exerciseName));
         navigate("/");
@@ -105,7 +106,7 @@ import { options, useFetch } from 'hooks/useFetch';
 
     //const bodyParts = useFetch(url, options);
     return ( //useFetch and have props for url.
-        <div>
+        <div id="plan-list">
             {loading ? 
             <>
                 <Spinner animation="border"/>
