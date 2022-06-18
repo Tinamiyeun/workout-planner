@@ -9,19 +9,10 @@ export function PlanList(){
         set: 0
     })
     const plan = JSON.parse(yourPlan);
-    // const [plan, setPlan] = useState([])
-
-
-
-    useEffect(() =>{
-        console.log(currentExc);
-    },[currentExc])
-
 
     // useEffect(() =>{
-    //     let plan = JSON.parse(yourPlan);
-    //     setPlan(plan);
-    // },[])
+    //     console.log(currentExc);
+    // },[currentExc])
 
 
     return <div className='p-3'>
@@ -38,7 +29,7 @@ export function PlanList(){
                                                     <tbody>
                                                         {[...Array(item.set)].map((temp, j) => {
                                                             // how to make key unique, item.exercise.id + j
-                                                            return <tr key={"set" + excIndex + j} className={currentExc.exc === excIndex && currentExc.set === j ? 'bg-warning' : ''}>
+                                                            return <tr key={item.exercise.id + j} className={currentExc.exc === excIndex && currentExc.set === j ? 'bg-warning' : ''}>
 
                                                                 <td>{j + 1}</td>
                                                                 <td>{item.weight} kg</td>
