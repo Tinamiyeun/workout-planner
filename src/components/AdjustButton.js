@@ -12,8 +12,12 @@ export function AdjustButton(props){
 
     }
 
-    return <>
-    <button onClick={minus}>-</button>{item}{props.kg}<button onClick={plus}>+</button>
-    </>
+    return (
+        <div className="tabBtns">
+            <button onClick={minus}>-</button>
+            {item}{props.kg}
+            <button onClick={plus}>+</button>
+        </div>
+    )
 
 }
