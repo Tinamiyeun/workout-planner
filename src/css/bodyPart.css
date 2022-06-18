@@ -61,3 +61,7 @@
     font-size: 100px;
     border: 10px solid #000;
 }
+
+.navlink-header {
+    color: black !important;
+}

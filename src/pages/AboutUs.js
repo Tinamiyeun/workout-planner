@@ -9,7 +9,7 @@ function AboutUs() {
     return (
         <Container>
             <Col sm={12}>            
-            <h1>Limitless</h1>
+            <h1>The Limit</h1>
             <hr/>
             <Col sm={9} className="description">
             <p>There is no limit to what you are capable of, physically and mentally. The Limit is about perseverance. The goal is to push yourself past your individual limit.

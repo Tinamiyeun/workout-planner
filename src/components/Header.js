@@ -4,51 +4,82 @@ import { useContext } from "react";
 import { LoggedInContext } from "App";
 import { VipContext } from "contexts/VipContext";
 import { ThemeButton } from "./ThemeButton";
+import { LogoutButton } from "./LogoutButton";
 
 function Header() {
     const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
     const [isVip, setIsVip] = useContext(VipContext);
 
-    if(isVip){
-        return (
-            <Wrapper>
-            <h1>THE LIMIT</h1>
+    return (
+        <Wrapper>
+            <NavLink to='/'><h1>THE LIMIT</h1></NavLink>
             <ul>
-                <li className="me-5"><NavLink to="/">Home</NavLink></li>
-                <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
-                <li className="me-5"><NavLink to="/customizeplan">Create Your Own Plan</NavLink></li>
-                <li className="me-5"><NavLink to="/">Plans</NavLink></li>
-                <ThemeButton/>
+                 <li className="me-5"><NavLink to="/">Home</NavLink></li>
+                 <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
+                 {isLoggedIn?
+                  isVip?
+                        <>
+                        <li className="me-5"><NavLink to="/customizeplan">Create Your Own Plan</NavLink></li>
+                        <li className="me-5"><NavLink to="/">Plans</NavLink></li>
+                        <li className="me-5"><LogoutButton /></li></>
+                        :
+                        <>
+                        <li className="me-5"><NavLink to="/">Plans</NavLink></li>
+                        <li className="me-5"><LogoutButton /></li></>
+                    : 
+                    <>
+                    <li className="me-5"><NavLink to="/login">Login</NavLink></li>
+                    <li className="me-5"><NavLink to="/register">Register</NavLink></li></>
+                    }
+                    <ThemeButton/>
             </ul>
         </Wrapper>
-        )
-    }
-    else if(!isVip && isLoggedIn){
-        return ( 
-        <Wrapper>
-            <h1>THE LIMIT</h1>
-            <ul>
-                <li className="me-5"><NavLink to="/">Home</NavLink></li>
-                <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
-                <li className="me-5"><NavLink to="/">Plans</NavLink></li>
-                <ThemeButton/>
-            </ul>
-        </Wrapper>)
-    }
-    else if(!isLoggedIn){
-        return (
-            <Wrapper>
-                <h1>THE LIMIT</h1>
-                <ul>
-                    <li className="me-5"><NavLink to="/">Home</NavLink></li>
-                    <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
-                    <li className="me-5"><NavLink to="/login">Login</NavLink></li>
-                    <li className="me-5"><NavLink to="/register">Register</NavLink></li>
-                    <ThemeButton/>
-                </ul>
-            </Wrapper>
-        )
-    }
+        
+    )
+
+    // if(isVip){
+    //     return (
+    //         <Wrapper>
+    //         <h1>THE LIMIT</h1>
+    //         <ul>
+    //             <li className="me-5"><NavLink to="/">Home</NavLink></li>
+    //             <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
+    //             <li className="me-5"><NavLink to="/customizeplan">Create Your Own Plan</NavLink></li>
+    //             <li className="me-5"><NavLink to="/">Plans</NavLink></li>
+    //             <li className="me-5"><LogoutButton /></li>
+
+    //             <ThemeButton/>
+    //         </ul>
+    //     </Wrapper>
+    //     )
+    // }
+    // else if(!isVip && isLoggedIn){
+    //     return ( 
+    //     <Wrapper>
+    //         <h1>THE LIMIT</h1>
+    //         <ul>
+    //             <li className="me-5"><NavLink to="/">Home</NavLink></li>
+    //             <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
+                // <li className="me-5"><NavLink to="/">Plans</NavLink></li>
+                // <li className="me-5"><LogoutButton /></li>
+    //             <ThemeButton/>
+    //         </ul>
+    //     </Wrapper>)
+    // }
+    // else if(!isLoggedIn){
+    //     return (
+    //         <Wrapper>
+    //             <h1>THE LIMIT</h1>
+    //             <ul>
+    //                 <li className="me-5"><NavLink to="/">Home</NavLink></li>
+    //                 <li className="me-5"><NavLink to="/about">About Us</NavLink></li>
+    //                 <li className="me-5"><NavLink to="/login">Login</NavLink></li>
+    //                 <li className="me-5"><NavLink to="/register">Register</NavLink></li>
+    //                 <ThemeButton/>
+    //             </ul>
+    //         </Wrapper>
+    //     )
+    // }
     
 }
 
