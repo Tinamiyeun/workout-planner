@@ -71,3 +71,7 @@
     width: auto;
     white-space: nowrap;
 }
+
+.price{
+    font-size: 100px;
+}

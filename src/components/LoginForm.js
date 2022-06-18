@@ -53,6 +53,11 @@ export function LoginForm(){
                     navigate("/login")
                 }
               })}
+              React.useEffect(() => {
+
+                console.log(userName)
+                
+                })
 
         // useEffect(() => {
         //     console.log(userName)

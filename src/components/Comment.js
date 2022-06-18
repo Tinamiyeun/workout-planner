@@ -6,9 +6,9 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
 
-function Comment(){
+function Comment(props){
 
-    const [comment, setComment] = useState('');
+    const setComment = props.setComment;
 
     const tooEasy = () =>{
         setComment('too easy');
