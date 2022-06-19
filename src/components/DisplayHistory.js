@@ -33,29 +33,28 @@ function DisplayHistory() {
 
     return (
         <>
-         <button onClick={show}>click</button>
-         <Table striped bordered hover size="sm">
-      <thead>
-        <tr>
-          <th>Workout history</th>
-          <th>Comment</th>
-          <th>Date and time</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {histories.map((history) =>{
-            return <tr key={history.id}>
-                <td><ul>{history.exercise_records.map((record)=>{
-                    return <li>{record.exercise.name}</li>
-                })}</ul></td>
-                <td>{history.comment}</td>
-                <td>{history.date}</td>
-                <td><Button>Use this plan</Button></td>
-            </tr>
-        })}      
-      </tbody>
-    </Table>
+        <Table striped bordered hover size="sm">
+            <thead>
+                <tr>
+                <th>Workout history</th>
+                <th>Comment</th>
+                <th>Date and time</th>
+                <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {histories.map((history) =>{
+                    return <tr key={history.id}>
+                        <td><ul>{history.exercise_records.map((record)=>{
+                            return <li>{record.exercise.name}</li>
+                        })}</ul></td>
+                        <td>{history.comment}</td>
+                        <td>{history.date}</td>
+                        <td><Button variant="warning">Use this plan</Button></td>
+                    </tr>
+                })}      
+            </tbody>
+        </Table>
         </>
     )
 }

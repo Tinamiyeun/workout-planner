@@ -26,10 +26,9 @@ function Save(props) {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
-        .then((data) => data.json())
-        .then((json) => {
-            
-        });
+        .then((data) => data.json());
+      
+
     }
     
 
