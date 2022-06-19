@@ -59,27 +59,27 @@ function App() {
       <>
       <GlobalStyles />
       <Switch onChange={toggleTheme} checked={theme === "dark"} label="light/dark mode" />
-    <LoggedInContext.Provider value = {loggedInValueToProvide}>
-      <VipContext.Provider value = {vipToProvide}>
-        <UserNameContext.Provider value = {userNameToProvide}>
-          <Routes>
-            <Route path="/" element={<PageLayout />}>
-              <Route index element={<HomePage />} />
-              <Route path="about" element={<AboutUs />} />
-              <Route path="loggedin" element={<PlanChoices />} />
-              <Route path="editbeginnerplan" element={<BeginnerPlanEdit />} />
-              <Route path="customizeplan" element={<CustomizePlan />} />
-              <Route path="workout" element={<Workout />} />
-              <Route path="postworkout" element={<PostWorkout />} />
-              <Route path="history" element={<History />} />
-              <Route path="login" element={<Login />} />
-              <Route path="register" element={<Register />} />
-              <Route path="upgrade" element={<Upgrade />} />
-            </Route>
-          </Routes>
-        </UserNameContext.Provider>
-      </VipContext.Provider>
-    </LoggedInContext.Provider>
+      <LoggedInContext.Provider value = {loggedInValueToProvide}>
+        <VipContext.Provider value = {vipToProvide}>
+          <UserNameContext.Provider value = {userNameToProvide}>
+            <Routes>
+              <Route path="/" element={<PageLayout />}>
+                <Route index element={<HomePage />} />
+                <Route path="about" element={<AboutUs />} />
+                <Route path="loggedin" element={<PlanChoices />} />
+                <Route path="editbeginnerplan" element={<BeginnerPlanEdit />} />
+                <Route path="customizeplan" element={<CustomizePlan />} />
+                <Route path="workout" element={<Workout />} />
+                <Route path="postworkout" element={<PostWorkout />} />
+                <Route path="history" element={<History />} />
+                <Route path="login" element={<Login />} />
+                <Route path="register" element={<Register />} />
+                <Route path="upgrade" element={<Upgrade />} />
+              </Route>
+            </Routes>
+          </UserNameContext.Provider>
+        </VipContext.Provider>
+      </LoggedInContext.Provider>
     </>
       {/* </div> */}
 

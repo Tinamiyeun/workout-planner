@@ -15,7 +15,7 @@ function Header() {
         <Wrapper>
             <NavLink to='/' className="navlink-header"><h1>THE LIMIT</h1></NavLink>
             <ul>
-                {isLoggedIn? <li className="me-5 li-header">welcome,{username}</li>:''}
+                {isLoggedIn? <li className="me-5 li-header">welcome, {username}</li>:''}
 
                  <li className="me-5 li-header"><NavLink to="/" className="navlink-header">Home</NavLink></li>
                  <li className="me-5 li-header"><NavLink to="/about" className="navlink-header">About Us</NavLink></li>
@@ -23,14 +23,14 @@ function Header() {
                   isVip?
                         <>
                         <li className="me-5 li-header"><NavLink className="navlink-header" to="/customizeplan">Create Your Own Plan</NavLink></li>
-                        <li className="me-5 li-header"><NavLink className="navlink-header" to="/">Plans</NavLink></li>
+                        <li className="me-5 li-header"><NavLink className="navlink-header" to="/loggedin">Plans</NavLink></li>
                         <li className="me-5 li-header"><NavLink className="navlink-header" to="postworkout">postworkout</NavLink></li>
                         <li className="me-5 li-header"><NavLink className="navlink-header" to="history">history</NavLink></li>
                         <li className="me-5 li-header"><LogoutButton /></li></>
                         :
                         <>
                         <li className="me-5 li-header"><NavLink className="navlink-header" to="/upgrade">Create Your Own Plan</NavLink></li>
-                        <li className="me-5 li-header"><NavLink className="navlink-header" to="/">Plans</NavLink></li>
+                        <li className="me-5 li-header"><NavLink className="navlink-header" to="/loggedin">Plans</NavLink></li>
                         <li className="me-5 li-header"><NavLink className="navlink-header" to="/upgrade">Upgrade To VIP</NavLink></li>
 
                         <li className="me-5 li-header"><LogoutButton /></li></>
