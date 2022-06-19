@@ -10,7 +10,7 @@ function Save(props) {
         console.log({userName})       
         })    
     
-    const yourPlan = window.sessionStorage.getItem('yourPlan');
+    const yourPlan = JSON.parse(window.sessionStorage.getItem('yourPlan'));
     const comment = props.comment;
    
     const handleOnClick = (event) => {

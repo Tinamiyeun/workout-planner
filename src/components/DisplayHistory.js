@@ -1,6 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { UserNameContext } from 'contexts/UserNameContext';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 
 function DisplayHistory() {
 
@@ -8,7 +9,8 @@ function DisplayHistory() {
     // React.useEffect(() => {
     //     console.log({userName})       
     //     }) 
-    let history = [];
+    const [histories, setHistories] = useState([]);
+
     const show = () => {
         
         fetch("http://localhost:3001/history/get", {
@@ -21,31 +23,35 @@ function DisplayHistory() {
             },
         })
         .then((data) => data.json())
-        .then((json) => {history=JSON.parse(JSON.stringify(json))
-            console.log(history)
+        .then((json) => {setHistories(JSON.parse(JSON.stringify(json)))
+            console.log(histories)
         });
     };
-    show();
-
+    useEffect(() => {
+        show();
+    }, [])
 
     return (
         <>
-         {/* <button onClick={show}>click</button> */}
+         <button onClick={show}>click</button>
          <Table striped bordered hover size="sm">
       <thead>
         <tr>
-          <th>workout history</th>
-          <th>comment</th>
-          <th>date and time</th>
+          <th>Workout history</th>
+          <th>Comment</th>
+          <th>Date and time</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        {history.map((history) =>{
-            //console.log(history.id);
+        {histories.map((history) =>{
             return <tr key={history.id}>
-                <td>{history.exercise_records}</td>
+                <td><ul>{history.exercise_records.map((record)=>{
+                    return <li>{record.exercise.name}</li>
+                })}</ul></td>
                 <td>{history.comment}</td>
                 <td>{history.date}</td>
+                <td><Button>Use this plan</Button></td>
             </tr>
         })}      
       </tbody>
