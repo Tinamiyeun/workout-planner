@@ -17,6 +17,7 @@ import { GlobalStyles } from 'components/Global';
 import { ThemeProvider } from 'styled-components';
 import Switch from 'react-bootstrap/Switch';
 import { Upgrade } from 'pages/Upgrade';
+import BeginnerPlanEdit from 'components/BeginnerPlanEdit';
 
 // import { ThemeContext } from 'styled-components';
 
@@ -66,6 +67,7 @@ function App() {
               <Route index element={<HomePage />} />
               <Route path="about" element={<AboutUs />} />
               <Route path="loggedin" element={<PlanChoices />} />
+              <Route path="editbeginnerplan" element={<BeginnerPlanEdit />} />
               <Route path="customizeplan" element={<CustomizePlan />} />
               <Route path="workout" element={<Workout />} />
               <Route path="postworkout" element={<PostWorkout />} />
