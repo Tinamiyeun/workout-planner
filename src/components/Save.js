@@ -10,7 +10,7 @@ function Save(props) {
         console.log({userName})       
         })    
     
-    const yourPlan = window.sessionStorage.getItem('yourPlan');
+    const yourPlan = JSON.parse(window.sessionStorage.getItem('yourPlan'));
     const comment = props.comment;
    
     const handleOnClick = (event) => {
@@ -26,10 +26,9 @@ function Save(props) {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
-        .then((data) => data.json())
-        .then((json) => {
-            
-        });
+        .then((data) => data.json());
+      
+
     }
     
 
