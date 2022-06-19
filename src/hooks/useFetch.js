@@ -4,7 +4,7 @@ export const options = {
   method: 'GET',
   url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
   headers: {
-    'X-RapidAPI-Key': '082a5f6ba3mshd277027b79d445bp15ed55jsnb7c2a88adc19',
+    'X-RapidAPI-Key': 'c8739c6020msh0d1a4f9ddee650bp191704jsnb648ce065297',
     'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
   }
 };

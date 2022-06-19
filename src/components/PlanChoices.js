@@ -44,13 +44,13 @@ function PlanChoices() {
             setExpertData([allData[2]]);
         }
         setLevel();
-        console.log(allData);
+        //console.log(allData);
     },[allData])
     
     useEffect (() => {
-        console.log(beginnerData)
-        console.log(intermediateData)
-        console.log(expertData)
+       // console.log(beginnerData)
+        //console.log(intermediateData)
+        //console.log(expertData)
         setLoading(false)
     }, [beginnerData, intermediateData, expertData])
     

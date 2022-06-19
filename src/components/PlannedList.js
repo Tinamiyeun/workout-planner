@@ -23,15 +23,15 @@ import { PlanList } from './PlanList';
     }, [])*/
 
     useEffect (() => {
-        console.log(exercises);
+        //console.log(exercises);
         addUrl();
-        console.log(window.sessionStorage.getItem('yourPlan'));
+        //console.log(window.sessionStorage.getItem('yourPlan'));
     }, [exercises]) 
 
     useEffect (() => {
-        console.log(urlList);
+        //console.log(urlList);
         fetchNames();
-        console.log(window.sessionStorage.getItem('yourPlan'));
+        //console.log(window.sessionStorage.getItem('yourPlan'));
     }, [urlList])
 
     const addUrl = () => {
@@ -51,11 +51,12 @@ import { PlanList } from './PlanList';
 
     const fetchNames = async () => {
         try{
-            const options = {method: 'GET',
+            const options = {
+                method: 'GET',
                 url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
                 headers: {
-                'X-RapidAPI-Key': 'c8739c6020msh0d1a4f9ddee650bp191704jsnb648ce065297',
-                'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+                  'X-RapidAPI-Key': 'c8739c6020msh0d1a4f9ddee650bp191704jsnb648ce065297',
+                  'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
                 }
             }
             let tempName = [];
@@ -63,7 +64,7 @@ import { PlanList } from './PlanList';
             for (const url of urlList) {
                 const res = await fetch(url, options)
                 const data = await  res.json();
-                console.log(data);
+               // console.log(data);
                 tempName.push(data);
                 planList.push({exercise: data, weight: 0, rep: 8, set: 4})
                 
@@ -78,8 +79,10 @@ import { PlanList } from './PlanList';
 
     const saveExercise = () => {
         try {
+            //window.sessionStorage.setItem('yourPlan', "hello"); 
+            window.sessionStorage.setItem('yourPlan', JSON.stringify(yourPlan)); 
             window.localStorage.setItem('yourPlan', JSON.stringify(yourPlan)); 
-            console.log(window.localStorage.getItem('yourPlan'));
+            //console.log(window.localStorage.getItem('yourPlan'));
             navigate("/editbeginnerplan");
         } catch (e) {
             console.log(e);
