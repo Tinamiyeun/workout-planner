@@ -17,22 +17,26 @@ import { PlanList } from './PlanList';
     const exercises = props.data;
     const setExercises = props.setData;
 
-    /*useEffect (() => {
-        console.log(exercises);
-        setExercises(props.data);
-    }, [])*/
+    let storedLevelPlan = null;
+    if (props.level === 'Beginner') {
+        storedLevelPlan = JSON.parse(localStorage.getItem('beginnerPlan'));
+    } else if (props.level === 'Intermediate') {
+        storedLevelPlan = JSON.parse(localStorage.getItem('intermediatePlan'));
+    } else if (props.level === 'Expert') {
+        storedLevelPlan = JSON.parse(localStorage.getItem('expertPlan'));
+    }
 
     useEffect (() => {
-        //console.log(exercises);
-        addUrl();
-        //console.log(window.sessionStorage.getItem('yourPlan'));
+        !storedLevelPlan && addUrl();
     }, [exercises]) 
 
     useEffect (() => {
-        //console.log(urlList);
         fetchNames();
-        //console.log(window.sessionStorage.getItem('yourPlan'));
     }, [urlList])
+
+    useEffect (() => {
+        console.log(exerciseName);
+    }, [exerciseName])
 
     const addUrl = () => {
         try{
@@ -61,15 +65,22 @@ import { PlanList } from './PlanList';
             }
             let tempName = [];
             let planList = [];
-            for (const url of urlList) {
-                const res = await fetch(url, options)
-                const data = await  res.json();
-               // console.log(data);
-                tempName.push(data);
-                planList.push({exercise: data, weight: 0, rep: 8, set: 4})
-                
+            if (!storedLevelPlan) {
+                for (const url of urlList) {
+                    const res = await fetch(url, options)
+                    const data = await  res.json();
+                    tempName.push(data);
+                    planList.push({exercise: data, weight: 0, rep: 8, set: 4})
+                }
+                setExerciseName(tempName);
+            } else {
+                for (const data of storedLevelPlan) {
+                    planList.push({...data, weight: 0, rep: 8, set: 4})
+                }
+                setExerciseName(storedLevelPlan);
+                console.log(exerciseName);
+                console.log(storedLevelPlan);
             }
-            setExerciseName(tempName);
             setYourPlan(planList);
             setLoading(true);
         } catch (e) {
@@ -79,30 +90,30 @@ import { PlanList } from './PlanList';
 
     const saveExercise = () => {
         try {
-            //window.sessionStorage.setItem('yourPlan', "hello"); 
             window.sessionStorage.setItem('yourPlan', JSON.stringify(yourPlan)); 
-            //window.localStorage.setItem('yourPlan', JSON.stringify(yourPlan)); 
-            //console.log(window.localStorage.getItem('yourPlan'));
+            !storedLevelPlan && window.localStorage.setItem(props.level.toLowerCase() + 'Plan', JSON.stringify(yourPlan)); 
             navigate("/editbeginnerplan");
         } catch (e) {
             console.log(e);
         }
-        
-    }
-
-    const sendYourPlan = () => {
-        navigate("/editbeginnerplan");
     }
 
     return ( 
         <div id="plan-list">
             <h2>{props.level}</h2>
-            <ul>
-                {exerciseName?.map((name)=>{
-                return <li key={name.name}>{name.name}</li>
-                })}
-            </ul>
-            <Button variant="primary" onClick={saveExercise} >Select this plan</Button>
+            {storedLevelPlan ? <ul>
+            {exerciseName?.map((item)=>{
+                return (
+                <li>
+                    {item.exercise.name}
+                </li>)
+            })}
+        </ul> : <ul>
+            {exerciseName?.map((exercise)=>{
+            return <li key={exercise.name}>{exercise.name}</li>
+            })}
+        </ul>}
+            <Button variant="warning" onClick={saveExercise} >Select this plan</Button>
             
         </div>
     );

@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PlannedList from 'components/PlannedList';
+import {LoggedInContext} from "../App";
 import { useFetchDB } from 'hooks/useFetchDb';
 import Spinner from 'react-bootstrap/Spinner';
-
-//Displays the exercises for predefined plan.
-let beginnerUrl = 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList';
-let list = 'https://exercisedb.p.rapidapi.com/exercises'
-let id1 = 'https://exercisedb.p.rapidapi.com/exercises/exercise/0001'
-
+import NavigateToHome from './NavigateToHome';
+import SuggestVip from './SuggestVip';
 
 function PlanChoices() {
     const [allData, setAllData] = useState([]);
@@ -16,6 +13,7 @@ function PlanChoices() {
     const [expertData, setExpertData] = useState([]);
     const [urlList, setUrlList] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [isLoggedIn,setIsLoggedIn] = useContext(LoggedInContext);
 
 
     let backend = process.env.REACT_APP_SERVER_URL;
@@ -23,9 +21,7 @@ function PlanChoices() {
         try{
             const res = await fetch(backend+"/get", { method: "GET" })
             const data = await  res.json();
-            console.log(data);
             let tempUrl = [];
-
             setLoading(true);
             setAllData(data);
             
@@ -48,30 +44,40 @@ function PlanChoices() {
     },[allData])
     
     useEffect (() => {
-       // console.log(beginnerData)
-        //console.log(intermediateData)
-        //console.log(expertData)
         setLoading(false)
     }, [beginnerData, intermediateData, expertData])
     
 
     return (
-            <div id="plan">
-                {loading ? 
-                <>
-                    <Spinner animation="border"/>
-                    <p>loading</p>
-                </> 
-                : 
-                <>
-                    <PlannedList level="beginner" data={beginnerData} setData={setBeginnerData}/>
-                    <PlannedList level="intermediate" data={intermediateData} setData={setIntermediateData}/>
-                    <PlannedList level="expert" data={expertData} setData={setExpertData}/>
-                </>
-                }
-
-                
-            </div>
+            <>
+                <div class="container" id="plan">
+                    {loading ? 
+                        <>
+                            <Spinner animation="border"/>
+                            <p>loading</p>
+                        </> 
+                        : 
+                        <>  
+                            <div class="row">
+                                <div class="col-4">
+                                    <PlannedList level="Beginner" data={beginnerData} setData={setBeginnerData}/>
+                                </div>
+                                <div class="col-4">
+                                    <PlannedList level="Intermediate" data={intermediateData} setData={setIntermediateData}/>
+                                </div>
+                                <div class="col-4">
+                                    <PlannedList level="Expert" data={expertData} setData={setExpertData}/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <SuggestVip />
+                                </div>
+                            </div>                            
+                        </>
+                    }
+                </div>
+            </>
 
     );
 }
