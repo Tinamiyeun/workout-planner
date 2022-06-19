@@ -3,14 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { YourPlan } from './YourPlan';
 
 function BeginnerPlanEdit () {
-    const plan = localStorage.getItem('yourPlan');
+    const plan = sessionStorage.getItem('yourPlan');
 
-    //const [yourPlan, setYourPlan] = useState(JSON.parse(window.localStorage.getItem('YourPlan')));
+    const [yourPlan, setYourPlan] = useState(plan);
     useEffect(() => {
-        //console.log(yourPlan);
-        //console.log(JSON.parse(window.sessionStorage.getItem('YourPlan')));
+        console.log(yourPlan);
         console.log(plan);
-        //console.log(JSON.parse(plan));
         
     }, [])
     return (

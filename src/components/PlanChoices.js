@@ -65,8 +65,8 @@ function PlanChoices() {
                 : 
                 <>
                     <PlannedList level="beginner" data={beginnerData} setData={setBeginnerData}/>
-                    <PlannedList level="intermediate" data={intermediateData}/>
-                    <PlannedList level="expert" data={expertData}/>
+                    <PlannedList level="intermediate" data={intermediateData} setData={setIntermediateData}/>
+                    <PlannedList level="expert" data={expertData} setData={setExpertData}/>
                 </>
                 }
 
