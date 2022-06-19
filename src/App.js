@@ -56,7 +56,7 @@ function App() {
     <ThemeProvider theme={theme ==="light" ? lightTheme : darkTheme}>
       <>
       <GlobalStyles />
-      <Switch onChange={toggleTheme} checked={theme === "dark"}/>
+      <Switch onChange={toggleTheme} checked={theme === "dark"} label="light/dark mode" />
     <LoggedInContext.Provider value = {loggedInValueToProvide}>
       <VipContext.Provider value = {vipToProvide}>
         <UserNameContext.Provider value = {userNameToProvide}>

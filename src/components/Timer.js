@@ -14,7 +14,7 @@ export function Timer(props){
 
     const takeBreak = () => {
         if (currentExc.exc === plan.length -1 && currentExc.set === plan[currentExc.exc].set - 1){
-            navigate('/')
+            navigate('/postworkout')
         }else{
             setTimer(60);
         }
