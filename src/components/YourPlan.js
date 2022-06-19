@@ -122,7 +122,7 @@ export function YourPlan(props){
     return (
         <div className="col-12">
             <h4>Your Plan</h4>
-            <Table striped bordered hover responsive="true">
+            <Table bordered responsive="true" className="text-secondary">
                 <thead className="thead-dark">
                 <tr>
                     <th scope="col">#</th>

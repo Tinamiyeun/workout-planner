@@ -7,7 +7,7 @@ function HomePage() {
 
     return (
         <Wrapper>
-            <img src={img1} alt="placeholder" />                
+            <img src={img1} alt="placeholder"/>                
             <SignUp>
                 <h1>
                     Sign up for more features

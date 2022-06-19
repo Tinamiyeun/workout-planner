@@ -52,6 +52,7 @@
 }
 
 .timer{
+    color:#F2B705;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +60,7 @@
     width: 400px;
     height: 400px;
     font-size: 100px;
-    border: 10px solid #000;
+    border: 10px solid #F2B705;
 }
 
 .navlink-header {
@@ -70,8 +71,4 @@
 .li-header{
     width: auto;
     white-space: nowrap;
-}
-
-.price{
-    font-size: 100px;
 }

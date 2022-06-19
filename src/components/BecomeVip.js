@@ -33,10 +33,10 @@ export function BecomeVip(){
 
     return (
         <div className="container col-4">
-            <Card style={{ width: '18rem' }} border="warning">
+            <Card border="warning">
                 <Card.Body>
-                    <Card.Text>VIP</Card.Text>
-                    <Card.Title className="price">$29.99</Card.Title>
+                    <Card.Title className="text-center">VIP</Card.Title>
+                    <Card.Title className="text-center display-1">$29.99</Card.Title>
                     <Card.Text>
                     You can create your own workout plan! Thousands of exercises available in our library!
                     </Card.Text>
