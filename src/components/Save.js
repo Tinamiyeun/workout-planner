@@ -33,10 +33,10 @@ function Save(props) {
     
 
     return (
-        <>
-        <Button>Upload photo</Button>
-        <Button onClick={handleOnClick}>Save</Button>
-        </>
+        <div className="container col-6">
+        <Button className="col-5 me-5" variant="warning">Upload Photo</Button>
+        <Button variant="warning" className="col-5" onClick={handleOnClick}>Save</Button>
+        </div>
         
     )
 }
