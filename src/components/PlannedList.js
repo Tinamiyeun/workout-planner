@@ -100,7 +100,7 @@ import { Card } from 'react-bootstrap';
     }
 
     return ( 
-        <Card id="plan-list" style={{minHeight: '352px', marginBottom: '20px'}}>
+        <Card id="plan-list" style={{display:'flex', height: '100%', marginBottom: '20px', marginTop: '20px'}}>
             <Card.Title style={{textDecoration: 'underline'}}><h2>{props.level}</h2></Card.Title>
             {storedLevelPlan ? 
             <Card.Body>

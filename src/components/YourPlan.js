@@ -5,17 +5,17 @@ import { AdjustButton } from './AdjustButton'
 import Instructions from 'components/Instructions'
 ;
 export function YourPlan(props){
-    const [yourPlan, setYourPlan] = useState(props.yourPlan);
-    //let yourPlan = props.yourPlan; 
-    //let setYourPlan = props.setYourPlan; 
+    //const [yourPlan, setYourPlan] = useState(props.yourPlan);
+    const yourPlan = props.yourPlan; 
+    const setYourPlan = props.setYourPlan; 
     let count = 1;
 
     const handleDelete = (index) => {
         count--;
         const newList = yourPlan;
         newList.splice(index, 1);
-        //setYourPlan([...newList]);
         setYourPlan([...newList]);
+        //setYourPlan([...newList]);
     }
 
     const navigate = useNavigate();
@@ -26,7 +26,7 @@ export function YourPlan(props){
     useEffect(()=>{
         console.log(yourPlan);
         window.sessionStorage.setItem('yourPlan', JSON.stringify(yourPlan));
-    },[yourPlan, setYourPlan]);
+    },[yourPlan]);
 
     return (
         <div className="col-12">

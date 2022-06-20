@@ -14,7 +14,7 @@ function SuggestVip() {
     }
     if (isLoggedIn && !isVip) {
         return (
-                <Card border="warning" style={{marginTop: '20px'}}>
+                <Card border="warning" style={{marginTop: '60px'}}>
                     <Card.Body>
                         <Card.Title className="text-center"><h2>Upgrade your membership</h2></Card.Title>
                         <Card.Text className="text-center" style={{fontSize:'20px'}}>

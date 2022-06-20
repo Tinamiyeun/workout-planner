@@ -1,10 +1,14 @@
 import Button from 'react-bootstrap/Button';
 import React, {useState, useContext} from 'react';
 import { UserNameContext } from 'contexts/UserNameContext';
+import {useNavigate} from 'react-router-dom';
+import { VipContext } from "contexts/VipContext";
 
 function Save(props) {
     
     const [userName, setUserName] = useContext(UserNameContext);
+    const [isVip, setIsVip] = useContext(VipContext);
+    const navigate = useNavigate();
 
     React.useEffect(() => {
         console.log({userName})       
@@ -26,8 +30,8 @@ function Save(props) {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
-        .then((data) => data.json());
-      
+        .then((data) => data.json())
+        .then(isVip ? (navigate("/history")) : (navigate("/upgrade")));
 
     }
     
