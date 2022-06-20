@@ -1,5 +1,5 @@
 import React from 'react';
-import PlanChoices from 'components/PlanChoices';
+import PlanChoices from 'pages/PlanChoices';
 import NavigateButton from 'components/NavigateButton';
 
 //Page when the user is logged in

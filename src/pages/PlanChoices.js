@@ -3,8 +3,12 @@ import PlannedList from 'components/PlannedList';
 import {LoggedInContext} from "../App";
 import { useFetchDB } from 'hooks/useFetchDb';
 import Spinner from 'react-bootstrap/Spinner';
-import NavigateToHome from './NavigateToHome';
-import SuggestVip from './SuggestVip';
+import { Navigate } from 'react-router-dom';
+import SuggestVip from '../components/SuggestVip';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 function PlanChoices() {
     const [allData, setAllData] = useState([]);
@@ -49,35 +53,42 @@ function PlanChoices() {
     
 
     return (
+        <>
+            {isLoggedIn ?
             <>
-                <div class="container" id="plan">
-                    {loading ? 
-                        <>
-                            <Spinner animation="border"/>
-                            <p>loading</p>
-                        </> 
-                        : 
-                        <>  
-                            <div class="row">
-                                <div class="col-4">
-                                    <PlannedList level="Beginner" data={beginnerData} setData={setBeginnerData}/>
-                                </div>
-                                <div class="col-4">
-                                    <PlannedList level="Intermediate" data={intermediateData} setData={setIntermediateData}/>
-                                </div>
-                                <div class="col-4">
-                                    <PlannedList level="Expert" data={expertData} setData={setExpertData}/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <SuggestVip />
-                                </div>
-                            </div>                            
-                        </>
-                    }
-                </div>
+            {loading ? 
+                <>
+                    <Spinner animation="border"/>
+                    <p>loading</p>
+                </> 
+                : 
+                <>  
+                    <Container>
+                        <Row>
+                            <Col>
+                                <PlannedList level="Beginner" data={beginnerData} setData={setBeginnerData}/>
+                            </Col>
+                            <Col>
+                                <PlannedList level="Intermediate" data={intermediateData} setData={setIntermediateData}/>
+                            </Col>
+                            <Col>
+                                <PlannedList level="Expert" data={expertData} setData={setExpertData}/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <SuggestVip />                         
+                            </Col>
+                        </Row>
+                    </Container>
+                </>
+            }
             </>
+            : 
+            <Navigate to='/login' />
+            }
+                
+        </>
 
     );
 }

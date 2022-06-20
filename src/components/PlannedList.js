@@ -6,6 +6,7 @@ import { useFetchDb } from "hooks/useFetchDb";
 import Button from 'react-bootstrap/Button';
 import { options, useFetch } from 'hooks/useFetch';
 import { PlanList } from './PlanList';
+import { Card } from 'react-bootstrap';
 
  function PlannedList (props) {
     const [urlList, setUrlList] = useState([]);
@@ -99,23 +100,37 @@ import { PlanList } from './PlanList';
     }
 
     return ( 
-        <div id="plan-list">
-            <h2>{props.level}</h2>
-            {storedLevelPlan ? <ul>
-            {exerciseName?.map((item)=>{
-                return (
-                <li>
-                    {item.exercise.name}
-                </li>)
-            })}
-        </ul> : <ul>
-            {exerciseName?.map((exercise)=>{
-            return <li key={exercise.name}>{exercise.name}</li>
-            })}
-        </ul>}
-            <Button variant="warning" onClick={saveExercise} >Select this plan</Button>
+        <Card id="plan-list" style={{minHeight: '352px', marginBottom: '20px'}}>
+            <Card.Title style={{textDecoration: 'underline'}}><h2>{props.level}</h2></Card.Title>
+            {storedLevelPlan ? 
+            <Card.Body>
+            <ul>
+                {exerciseName?.map((item)=>{
+                    return (
+                    <li>
+                        {item.exercise.name}
+                    </li>
+                    )
+                })}
+            </ul>
+            </Card.Body> 
+            :
+            <Card.Body>
+                
+                <ul>
+                
+                    {exerciseName?.map((exercise)=>{
+                    return <li key={exercise.name}>
+                        <Card.Text style={{fontSize: '20px'}}>{exercise.name}</Card.Text></li>
+                    })}
+
+                </ul>
+               
+            </Card.Body>
+            }
+            <Button variant="warning" onClick={saveExercise}>Select this plan</Button>
             
-        </div>
+        </Card>
     );
 }
 

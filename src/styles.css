@@ -7,12 +7,13 @@
 
 #plan-list {
   border: 2px solid #BFB8AE;
-  padding: 10px;
+  padding: 20px;
+  margin-right: 20px;
   box-shadow: 6px 4px #BFB8AE;
   text-align: center;
+  font-size: 20px;
 }
 
-#plan-list h2 {
-  text-decoration: underline;
-  text-align: center;
+#plan-list li:first-letter {
+  text-transform: uppercase;
 }
