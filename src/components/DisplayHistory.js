@@ -2,17 +2,18 @@ import React, {useState, useContext, useEffect} from 'react';
 import { UserNameContext } from 'contexts/UserNameContext';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import {useNavigate} from 'react-router-dom';
+//import WeightModal from 'components/WeightModal';
 
 function DisplayHistory() {
-
+    let navigate = useNavigate();
     const [userName, setUserName] = useContext(UserNameContext);
-    // React.useEffect(() => {
-    //     console.log({userName})       
-    //     }) 
+    
     const [histories, setHistories] = useState([]);
+    //const [showWeightModal, setShowWeightModal] = useState(false)
 
-    const show = () => {
-        
+    // const [comment, setComment] = useState([]);
+    const show = () => {        
         fetch("http://localhost:3001/history/get", {
             method: 'POST',
             body: JSON.stringify({
@@ -31,14 +32,46 @@ function DisplayHistory() {
         show();
     }, [])
 
+    const [selectRecord, setSelectRecord] = useState([]);
+
+    // const getComment = () => {
+    //     fetch("http://localhost:3001/history/get", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //         id: histories._id,
+    //     }),
+    //     headers: {
+    //     "Content-type": "application/json; charset=UTF-8",
+    //     },
+    // })
+    //     .then((data) => data.json())
+    //     .then((json) => {setComment(JSON.parse(JSON.stringify(json)))
+    //         console.log(comment)
+    //     });
+    // };
+    // useEffect(() => {
+    //     getComment();
+    // }, [])
+
+
+    // function handleOnClick(){
+    //     setSelectRecord();   
+         // if(histories.comment === "too easy" ){  
+        //     console.log(this.histories.comment) ;         
+        //     alert("do you want to increase the weight?")
+        // }else if(histories.comment === "too hard" ){ 
+        //     alert("do you want to reduce the weight?")
+        // }
+    // }
+
     return (
         <>
-        <Table striped bordered hover size="sm">
+        <Table responsive='true' className="text-secondary">
             <thead>
                 <tr>
                 <th>Workout history</th>
-                <th>Comment</th>
                 <th>Date and time</th>
+                <th>Comment</th>
                 <th>Action</th>
                 </tr>
             </thead>
@@ -48,17 +81,33 @@ function DisplayHistory() {
                         <td><ul>{history.exercise_records.map((record)=>{
                             return <li>{record.exercise.name}</li>
                         })}</ul></td>
-                        <td>{history.comment}</td>
                         <td>{history.date}</td>
-                        <td><Button variant="warning">Use this plan</Button></td>
+                        <td>{history.comment}</td>
+                        <td>
+                        <Button variant="outline-warning" onClick={()=>{
+                            setSelectRecord({history});
+                            alert({history});
+                            }} >Use this plan</Button></td>
                     </tr>
                 })}      
             </tbody>
         </Table>
+        
         </>
     )
 }
 
 
 
+
 export default DisplayHistory;
+
+// onClick={()=>{ 
+//     if({history.comment} === "too easy" ){         
+//         alert("do you want to increase the weight?")
+//     }else if({comment} === "too hard" ){ 
+//         alert("do you want to reduce the weight?")
+//     }else{
+//         navigate("/")
+//     }
+// }}
