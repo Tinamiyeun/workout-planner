@@ -1,9 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import React, {useState, useContext} from 'react';
 import { UserNameContext } from 'contexts/UserNameContext';
+import {useNavigate} from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
 
 function Save(props) {
-    
+    let navigate = useNavigate();
     const [userName, setUserName] = useContext(UserNameContext);
 
     React.useEffect(() => {
@@ -12,8 +14,14 @@ function Save(props) {
     
     const yourPlan = JSON.parse(window.sessionStorage.getItem('yourPlan'));
     const comment = props.comment;
+
+    // const [photo, setPhoto] = useState([]);
+    // const onPhotoChange = (e) => {
+    //   setPhoto([...e.target.files[0]]);
+    // }
    
     const handleOnClick = (event) => {
+      
         fetch("http://localhost:3001/history", {
         method: "POST",
         body: JSON.stringify({//pass the value of input field here
@@ -28,14 +36,19 @@ function Save(props) {
       })
         .then((data) => data.json());
       
+      navigate('/history');
 
     }
     
 
     return (
         <>
-        <Button>Upload photo</Button>
-        <Button onClick={handleOnClick}>Save</Button>
+        <Form enctype="multipart/form-data">
+          <Form.Label for="photo">Upload photo</Form.Label>
+          <Form.Control type="file" name="photo" id="photo" />
+        </Form>
+        <br/>
+        <Button variant="warning" onClick={handleOnClick}>Save</Button>
         </>
         
     )
