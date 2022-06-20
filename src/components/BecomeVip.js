@@ -38,7 +38,7 @@ export function BecomeVip(){
                     <Card.Title className="text-center">VIP</Card.Title>
                     <Card.Title className="text-center display-1">$29.99</Card.Title>
                     <Card.Text style={{textAlign: 'center'}}>
-                    You can create your own workout plan! Thousands of exercises available in our library! You can also have access to your history of workout!
+                    You can create your own workout plan! Thousands of exercises available in our library!
                     </Card.Text>
                     <Button onClick={handleSubmit} variant="warning">Click here to become a VIP</Button>
                 </Card.Body>
