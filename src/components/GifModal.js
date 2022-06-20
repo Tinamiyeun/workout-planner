@@ -15,7 +15,7 @@ export function GifModal(props) {
             {props.exercise.name}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={{textAlign: 'center'}}>
           <img src={props.exercise.gifUrl} alt="exercise gif"></img>
         </Modal.Body>
         <Modal.Footer>

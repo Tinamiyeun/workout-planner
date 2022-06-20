@@ -14,4 +14,19 @@ body {
     padding-bottom: 40px;
 }
 
+table {
+    background-color: ${({ theme }) => theme.table};
+}
+.table-striped tbody tr:nth-of-type(odd) td {
+    color: ${({ theme }) => theme.color};
+    background-color: ${({ theme }) => theme.backgroundColor};
+}
+.table, table td {
+    color: ${({ theme }) => theme.color};
+}
+
+.vstack .btn-outline-secondary {
+    color: ${({ theme }) => theme.color};
+}
+
 `
