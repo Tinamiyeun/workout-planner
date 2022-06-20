@@ -6,7 +6,7 @@ export function GifModal(props) {
     return (
       <Modal
         {...props}
-        size="lg"
+        size="md"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
@@ -15,11 +15,11 @@ export function GifModal(props) {
             {props.exercise.name}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{textAlign: 'center'}}>
-          <img src={props.exercise.gifUrl} alt="exercise gif"></img>
+        <Modal.Body>
+          <img className='container' src={props.exercise.gifUrl} alt="exercise gif"></img>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button variant="warning" onClick={props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>
     );

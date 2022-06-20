@@ -4,10 +4,11 @@ import {useNavigate} from 'react-router-dom';
 import { UserNameContext } from 'contexts/UserNameContext';
 import { Card } from 'react-bootstrap';
 import '../css/bodyPart.css';
+import { VipContext } from 'contexts/VipContext';
 
 export function BecomeVip(){
 
-
+    const [isVip, setIsVip] = useContext(VipContext);
     const [username, setUserName] = useContext(UserNameContext);
     const navigate = useNavigate();
 
@@ -25,6 +26,7 @@ export function BecomeVip(){
             })
             .then((data) => data.json())
             .then((json)=> {
+                json.success? setIsVip(true): setIsVip(false);
                 json.success? alert("Congratulations! You are a VIP now!"): alert("unsuccessful!");
                 json.success? navigate('/customizeplan'): navigate('/');
             })
