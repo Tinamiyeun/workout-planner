@@ -13,10 +13,10 @@ function HomePage() {
                     Sign up for more features
                 </h1>
             </SignUp>
-            <Box>
+            <Box className="my-3">
                 <Box1><h2>Follow the plan</h2></Box1>
                 <Box1><h2>Create your own plan</h2></Box1>
-                <Box1><h2>And MORE!</h2></Box1>               
+                <Box1><h2>And <br></br>MORE!</h2></Box1>               
             </Box>
             <Section1>
                 <img src={img2} alt="placeholder" />

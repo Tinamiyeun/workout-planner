@@ -66,7 +66,7 @@ function DisplayHistory() {
 
     return (
         <>
-        <Table striped bordered hover size="sm">
+        <Table responsive='true' className="text-secondary">
             <thead>
                 <tr>
                 <th>Workout history</th>
@@ -84,7 +84,7 @@ function DisplayHistory() {
                         <td>{history.date}</td>
                         <td>{history.comment}</td>
                         <td>
-                        <Button variant="warning" onClick={()=>{
+                        <Button variant="outline-warning" onClick={()=>{
                             setSelectRecord({history});
                             alert({history});
                             }} >Use this plan</Button></td>

@@ -42,14 +42,14 @@ function Save(props) {
     
 
     return (
-        <>
+        <div className="container col-6">
         <Form enctype="multipart/form-data">
           <Form.Label for="photo">Upload photo</Form.Label>
           <Form.Control type="file" name="photo" id="photo" />
         </Form>
         <br/>
         <Button variant="warning" onClick={handleOnClick}>Save</Button>
-        </>
+        </div>
         
     )
 }
