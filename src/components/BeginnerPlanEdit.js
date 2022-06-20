@@ -4,6 +4,9 @@ import { PlanList } from './PlanList';
 import { YourPlan } from './YourPlan';
 import {LoggedInContext} from "../App";
 import { Navigate } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import SuggestVip from 'components/SuggestVip'
 
 function BeginnerPlanEdit () {
     const plan = sessionStorage.getItem('yourPlan');
@@ -17,8 +20,16 @@ function BeginnerPlanEdit () {
     }, [])
     return (
         <>
-        {isLoggedIn ? <YourPlan yourPlan={JSON.parse(plan)} setYourPlan={JSON.parse(plan)} /> : <Navigate to='/login' />}
-        
+            {isLoggedIn ? 
+            <Container>
+                <Col>
+                    <YourPlan yourPlan={JSON.parse(plan)} setYourPlan={JSON.parse(plan)} />
+                    <SuggestVip />
+                </Col>
+            </Container> 
+            : 
+                <Navigate to='/login' />
+            }
         </>
     )
     

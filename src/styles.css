@@ -17,3 +17,11 @@
 #plan-list li:first-letter {
   text-transform: uppercase;
 }
+
+#instructions {
+  border: 2px solid black;
+  padding: 5px;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}

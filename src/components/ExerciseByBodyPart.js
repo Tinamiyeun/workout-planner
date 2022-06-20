@@ -1,5 +1,5 @@
 import { Table,Button } from 'react-bootstrap';
-import React, {useEffect, useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { GifModal } from './GifModal';
 import { YourPlan } from './YourPlan';
 
@@ -7,7 +7,7 @@ export function ExerciseByBodyPart(props){
 
     const [showGif, setShowGif] = useState(false);
     const [yourPlan, setYourPlan] = useState([]);
-    const [activeItem, setActiveItem] = useState([props.exercises[0]]);
+    const [activeItem, setActiveItem] = useState([props.exercises[0], 0, 8, 4]);
 
     const handleGif = (exercise) => {
         setActiveItem(exercise);
@@ -15,15 +15,18 @@ export function ExerciseByBodyPart(props){
     }
 
     const handlePlusButton = (exercise) => {
-
         setYourPlan([...yourPlan, {exercise: exercise, weight: 0, rep: 8, set: 4}]);
-
+        // console.log(yourPlan)
     }
+
+    useEffect(() => {
+
+    }, [yourPlan])
 
     return <div className="col-12">
         <div className="row">
             <div className="col-6 centerBox">
-                <Table bordered hover responsive="true" className='text-secondary'>
+                <Table bordered hover responsive="true">
                     <thead>
                     <tr>
                         <th>Exercise name</th>
@@ -39,8 +42,8 @@ export function ExerciseByBodyPart(props){
                             <td>{exercise.equipment}</td>
                             <td>{exercise.target}</td>
                             {/* <img src={exercise.gifUrl} alt="exercise gif" style={{display: showGif ? "block" : "none"}}></img> */}
-                            <td><Button className="tabBtn" variant="outline-secondary"
-                                    onClick={() => handlePlusButton(exercise)}>+</Button></td>
+                            <Button className="tabBtn" variant="outline-secondary"
+                                    onClick={() => handlePlusButton(exercise)}>+</Button>
                         </tr>
                     })}
                     </tbody>
