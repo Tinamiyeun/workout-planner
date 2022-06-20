@@ -8,6 +8,7 @@ export function ExerciseByBodyPart(props){
     const [showGif, setShowGif] = useState(false);
     const [yourPlan, setYourPlan] = useState([]);
     const [activeItem, setActiveItem] = useState([props.exercises[0], 0, 8, 4]);
+    const plan = sessionStorage.getItem('yourPlan');
 
     const handleGif = (exercise) => {
         setActiveItem(exercise);
@@ -15,12 +16,20 @@ export function ExerciseByBodyPart(props){
     }
 
     const handlePlusButton = (exercise) => {
-        setYourPlan([...yourPlan, {exercise: exercise, weight: 0, rep: 8, set: 4}]);
+        if (!plan) {
+            setYourPlan([...yourPlan, {exercise: exercise, weight: 0, rep: 8, set: 4}]);
+        } else {
+            let parsedPlan = JSON.parse(plan);
+            setYourPlan([...parsedPlan, {exercise: exercise, weight: 0, rep: 8, set: 4}]);
+            let newPlan = [...parsedPlan, {exercise: exercise, weight: 0, rep: 8, set: 4}];
+            sessionStorage.setItem('yourPlan', JSON.stringify(newPlan));
+            console.log(yourPlan);
+        }
         // console.log(yourPlan)
     }
 
     useEffect(() => {
-
+        console.log(yourPlan);
     }, [yourPlan])
 
     return <div className="col-12">

@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
-import Spinner from 'react-bootstrap/Spinner';
-
-import { useFetchDb } from "hooks/useFetchDb";
 import Button from 'react-bootstrap/Button';
-import { options, useFetch } from 'hooks/useFetch';
-import { PlanList } from './PlanList';
+import { VipContext } from "contexts/VipContext";
 import { Card } from 'react-bootstrap';
 
  function PlannedList (props) {
@@ -13,6 +9,7 @@ import { Card } from 'react-bootstrap';
     const [exerciseName, setExerciseName] = useState([]);
     const [yourPlan, setYourPlan] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [isVip, setIsVip] = useContext(VipContext);
     const navigate = useNavigate();
 
     const exercises = props.data;
@@ -93,7 +90,7 @@ import { Card } from 'react-bootstrap';
         try {
             window.sessionStorage.setItem('yourPlan', JSON.stringify(yourPlan)); 
             !storedLevelPlan && window.localStorage.setItem(props.level.toLowerCase() + 'Plan', JSON.stringify(yourPlan)); 
-            navigate("/editbeginnerplan");
+            isVip ? navigate("/customizeplan") : navigate("/editbeginnerplan");
         } catch (e) {
             console.log(e);
         }

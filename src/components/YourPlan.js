@@ -6,7 +6,8 @@ import Instructions from 'components/Instructions'
 ;
 export function YourPlan(props){
     //const [yourPlan, setYourPlan] = useState(props.yourPlan);
-    const yourPlan = props.yourPlan; 
+    const plan = sessionStorage.getItem('yourPlan');
+    const yourPlan = plan? JSON.parse(plan) : props.yourPlan; 
     const setYourPlan = props.setYourPlan; 
     let count = 1;
 
