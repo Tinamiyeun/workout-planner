@@ -57,7 +57,7 @@ import { Card } from 'react-bootstrap';
                 method: 'GET',
                 url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
                 headers: {
-                  'X-RapidAPI-Key': '830b4b8052mshc4fa4449a8a9a2ep1a1956jsn99856bf7a0d8',
+                  'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
                   'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
                 }
             }
