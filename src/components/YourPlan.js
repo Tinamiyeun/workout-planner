@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 ;
 export function YourPlan(props){
-    const yourPlan = props.yourPlan; 
+    const plan = sessionStorage.getItem('yourPlan');
+    //const yourPlan = plan? JSON.parse(plan) : props.yourPlan;
+    //const [yourPlan, setYourPlan] = useState([props.yourPlan]);
+    const yourPlan =  props.yourPlan;
     const setYourPlan = props.setYourPlan; 
     let count = 1;
 
@@ -24,6 +27,7 @@ export function YourPlan(props){
     },[yourPlan]);               
 
     useEffect(()=>{
+        //plan && yourPlan = [...yourPlan, plan];
         console.log(yourPlan)
     },[yourPlan])
 

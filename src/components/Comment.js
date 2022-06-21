@@ -28,7 +28,7 @@ function Comment(props){
                 <Card.Body>
                     <Card.Title>What do you think about today's workout?</Card.Title>
                     <Row className="justify-content-md-center mt-4 mb-2">
-                        <Col><Button variant="outline-warning" onClick={tooEasy}>Great</Button></Col>
+                        <Col><Button variant="outline-warning" onClick={tooEasy}>Too Easy</Button></Col>
                         <Col><Button variant="outline-warning" onClick={great}>Great</Button></Col>
                         <Col><Button variant="outline-warning" onClick={tooHard}>Too Hard</Button></Col>
                     </Row>
