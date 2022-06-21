@@ -3,16 +3,22 @@ import { UserNameContext } from 'contexts/UserNameContext';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import {useNavigate} from 'react-router-dom';
+import { OptionModal } from './OptionModal';
 //import WeightModal from 'components/WeightModal';
 
 function DisplayHistory() {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
     const [userName, setUserName] = useContext(UserNameContext);
     
     const [histories, setHistories] = useState([]);
-    //const [showWeightModal, setShowWeightModal] = useState(false)
+    
+    const [selectedHistory, setSelectedHistory] = useState([]);
 
-    // const [comment, setComment] = useState([]);
+    const [showOptions, setShowOptions] = useState(false);
+
+    const [yourPlan, setYourPlan] = useState([]);
+    // const [wantAdjust, setWantAdjust] = useState(false);
+
     const show = () => {        
         fetch("http://localhost:3001/history/get", {
             method: 'POST',
@@ -32,37 +38,15 @@ function DisplayHistory() {
         show();
     }, [])
 
-    const [selectRecord, setSelectRecord] = useState([]);
-
-    // const getComment = () => {
-    //     fetch("http://localhost:3001/history/get", {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //         id: histories._id,
-    //     }),
-    //     headers: {
-    //     "Content-type": "application/json; charset=UTF-8",
-    //     },
-    // })
-    //     .then((data) => data.json())
-    //     .then((json) => {setComment(JSON.parse(JSON.stringify(json)))
-    //         console.log(comment)
-    //     });
-    // };
     // useEffect(() => {
-    //     getComment();
-    // }, [])
+    //     console.log(selectedHistory)
+    // },[selectedHistory])
 
-
-    // function handleOnClick(){
-    //     setSelectRecord();   
-         // if(histories.comment === "too easy" ){  
-        //     console.log(this.histories.comment) ;         
-        //     alert("do you want to increase the weight?")
-        // }else if(histories.comment === "too hard" ){ 
-        //     alert("do you want to reduce the weight?")
-        // }
-    // }
+    const handleUsePlanButton = (history) => {
+        setSelectedHistory(history);
+        setYourPlan(history.exercise_records);
+        setShowOptions(true);
+    }
 
     return (
         <>
@@ -85,14 +69,14 @@ function DisplayHistory() {
                         <td>{history.comment}</td>
                         <td>
                         <Button variant="outline-warning" onClick={()=>{
-                            setSelectRecord({history});
-                            alert({history});
+                            handleUsePlanButton(history);
+                            alert(history.exercise_records);
                             }} >Use this plan</Button></td>
                     </tr>
                 })}      
             </tbody>
         </Table>
-        
+        <OptionModal show={showOptions} onHide={() => setShowOptions(false)} easy={selectedHistory.comment === "too easy"} yourPlan={yourPlan} setYourPlan={setYourPlan}/>
         </>
     )
 }
