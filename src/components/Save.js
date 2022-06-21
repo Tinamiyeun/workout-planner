@@ -16,8 +16,14 @@ function Save(props) {
     const comment = props.comment;
 
     const [photo, setPhoto] = useState([]);
-    const onPhotoChange = (e) => {
-      setPhoto([...e.target.files[0]]);
+
+    const photoChange = (e) => {
+      if(e.target.files && e.target.files.length > 0) {
+        setPhoto(e.target.files[0]);
+      }
+    }
+    const removePhoto = () => {
+      setPhoto();
     }
     
     const handleOnClick = (event) => {
@@ -43,10 +49,29 @@ function Save(props) {
 
     return (
         <div className="container col-6">
-        <Form encType="multipart/form-data">
-          <Form.Label htmlFor="photo">Upload photo</Form.Label>
+        {/* <Form encType="multipart/form-data">
+          <Form.Label htmlFor="image">Upload photo</Form.Label>
           <Form.Control type="file" name="photo" id="photo" />
-        </Form>
+        </Form> */}
+        <div>
+        <input
+          accept="image/*"
+          type="file"
+          onChange={photoChange}
+        />
+
+        {photo && (
+          <div >
+            <img
+              src={URL.createObjectURL(photo)}
+              alt="Thumb"
+            />
+            <button onClick={removePhoto}>
+              Remove This Image
+            </button>
+          </div>
+        )}
+      </div>
         <br/>
         <Button variant="warning" onClick={handleOnClick}>Save</Button>
         </div>
