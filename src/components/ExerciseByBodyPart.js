@@ -7,7 +7,7 @@ export function ExerciseByBodyPart(props){
 
     const [showGif, setShowGif] = useState(false);
     const [yourPlan, setYourPlan] = useState([]);
-    const [activeItem, setActiveItem] = useState([props.exercises[0], 0, 8, 4]);
+    const [activeItem, setActiveItem] = useState([props.exercises[0]]);
     const plan = sessionStorage.getItem('yourPlan');
 
     const handleGif = (exercise) => {
