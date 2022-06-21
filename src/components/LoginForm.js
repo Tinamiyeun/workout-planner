@@ -45,7 +45,7 @@ export function LoginForm(){
                         navigate("/customizeplan")
                     }else{
                         setIsVip(false);
-                        navigate("/")
+                        navigate("/loggedin")
                     }
                 }else{
                     setIsLoggedIn(false);
