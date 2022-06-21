@@ -3,6 +3,8 @@ import { Button, Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 ;
 export function YourPlan(props){
+    //props: yourPlan, setYourPlan
+
     const yourPlan = props.yourPlan; 
     const setYourPlan = props.setYourPlan; 
     let count = 1;
@@ -23,9 +25,9 @@ export function YourPlan(props){
         window.sessionStorage.setItem('yourPlan', JSON.stringify(yourPlan));
     },[yourPlan]);               
 
-    useEffect(()=>{
-        console.log(yourPlan)
-    },[yourPlan])
+    // useEffect(()=>{
+    //     console.log(yourPlan)
+    // },[yourPlan])
 
     const minusWeight = (item, index)=>{
 

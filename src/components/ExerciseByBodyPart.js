@@ -4,7 +4,7 @@ import { GifModal } from './GifModal';
 import { YourPlan } from './YourPlan';
 
 export function ExerciseByBodyPart(props){
-
+    //props: exercises
     const [showGif, setShowGif] = useState(false);
     const [yourPlan, setYourPlan] = useState([]);
     const [activeItem, setActiveItem] = useState([props.exercises[0]]);
