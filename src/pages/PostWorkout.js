@@ -17,7 +17,7 @@ function PostWorkout(){
     <br/>
     <Comment setComment={setComment}/>
     <br/>
-    <Container>
+    <Container className="mt-3">
         <Row>
             <Col><Save comment={comment} /></Col>
         </Row>

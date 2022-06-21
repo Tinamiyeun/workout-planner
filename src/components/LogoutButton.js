@@ -13,9 +13,9 @@ export function LogoutButton(){
         navigate('/');
     }
 
-    useEffect(() =>{
-        console.log(isLoggedIn)
-    })
+    // useEffect(() =>{
+    //     console.log(isLoggedIn)
+    // })
     return (
         <Button variant="outline-secondary" onClick={logout} >Logout</Button>
     )

@@ -18,6 +18,7 @@ import { ThemeProvider } from 'styled-components';
 import Switch from 'react-bootstrap/Switch';
 import { Upgrade } from 'pages/Upgrade';
 import BeginnerPlanEdit from 'components/BeginnerPlanEdit';
+import { ReusePlan } from 'pages/ReusePlan';
 
 // import { ThemeContext } from 'styled-components';
 
@@ -75,6 +76,8 @@ function App() {
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
               <Route path="upgrade" element={<Upgrade />} />
+              <Route path="reuseplan" element={<ReusePlan />} />
+
             </Route>
           </Routes>
         </UserNameContext.Provider>

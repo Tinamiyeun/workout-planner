@@ -10,7 +10,7 @@ function Congrats() {
         <Container>
             <Card className="text-center">
                 <Card.Body>
-                    <Card.Title>{userName} Well Done!</Card.Title>
+                    <Card.Title><h2>{userName}, Well Done!</h2></Card.Title>
                     <Card.Text>A step closer to your goal!</Card.Text>
                 </Card.Body>
             </Card>
