@@ -15,11 +15,11 @@ function Save(props) {
     const yourPlan = JSON.parse(window.sessionStorage.getItem('yourPlan'));
     const comment = props.comment;
 
-    // const [photo, setPhoto] = useState([]);
-    // const onPhotoChange = (e) => {
-    //   setPhoto([...e.target.files[0]]);
-    // }
-   
+    const [photo, setPhoto] = useState([]);
+    const onPhotoChange = (e) => {
+      setPhoto([...e.target.files[0]]);
+    }
+    
     const handleOnClick = (event) => {
       
         fetch("http://localhost:3001/history", {
@@ -44,8 +44,8 @@ function Save(props) {
     return (
         <div className="container col-6">
         <Form enctype="multipart/form-data">
-          <Form.Label for="photo">Upload photo</Form.Label>
-          <Form.Control type="file" name="photo" id="photo" />
+          <Form.Label htmlFor="photo">Upload photo</Form.Label>
+          <Form.Control type="file" name="photo" id="photo"  />
         </Form>
         <br/>
         <Button variant="warning" onClick={handleOnClick}>Save</Button>
