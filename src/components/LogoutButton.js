@@ -9,6 +9,7 @@ export function LogoutButton(){
 
     const logout = ()=>{
         setIsLoggedIn(false);
+        sessionStorage.removeItem('yourPlan');
         alert("You are logged out.")
         navigate('/');
     }
