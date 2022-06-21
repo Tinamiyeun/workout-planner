@@ -84,13 +84,3 @@ function DisplayHistory() {
 
 
 export default DisplayHistory;
-
-// onClick={()=>{ 
-//     if({history.comment} === "too easy" ){         
-//         alert("do you want to increase the weight?")
-//     }else if({comment} === "too hard" ){ 
-//         alert("do you want to reduce the weight?")
-//     }else{
-//         navigate("/")
-//     }
-// }}

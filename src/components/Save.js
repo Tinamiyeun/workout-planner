@@ -3,6 +3,7 @@ import React, {useState, useContext} from 'react';
 import { UserNameContext } from 'contexts/UserNameContext';
 import {useNavigate} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
+import UploadPhoto from './UploadPhoto';
 
 function Save(props) {
     let navigate = useNavigate();
@@ -14,17 +15,11 @@ function Save(props) {
     
     const yourPlan = JSON.parse(window.sessionStorage.getItem('yourPlan'));
     const comment = props.comment;
-
-    const [photo, setPhoto] = useState([]);
-
-    const photoChange = (e) => {
-      if(e.target.files && e.target.files.length > 0) {
-        setPhoto(e.target.files[0]);
-      }
-    }
-    const removePhoto = () => {
-      setPhoto();
-    }
+    const photo = props.selectedFile;
+    React.useEffect(() => {
+      console.log(photo);
+    })
+    
     
     const handleOnClick = (event) => {
       
@@ -34,6 +29,7 @@ function Save(props) {
           username: userName,
           comment: comment,
           date: new Date(),
+          photo: photo,
           exercise_records: yourPlan,
         }),
         headers: {
@@ -53,25 +49,8 @@ function Save(props) {
           <Form.Label htmlFor="image">Upload photo</Form.Label>
           <Form.Control type="file" name="photo" id="photo" />
         </Form> */}
-        <div>
-        <input
-          accept="image/*"
-          type="file"
-          onChange={photoChange}
-        />
-
-        {photo && (
-          <div >
-            <img
-              src={URL.createObjectURL(photo)}
-              alt="Thumb"
-            />
-            <button onClick={removePhoto}>
-              Remove This Image
-            </button>
-          </div>
-        )}
-      </div>
+        
+        <UploadPhoto />
         <br/>
         <Button variant="warning" onClick={handleOnClick}>Save</Button>
         </div>

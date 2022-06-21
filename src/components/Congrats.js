@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import {useContext, useState, useEffect, useRef} from 'react';
 import { UserNameContext } from 'contexts/UserNameContext';
-import Confetti from 'react-confetti/dist/types/Confetti';
+import Confetti from 'react-confetti'
 
 function Congrats() {
 
@@ -13,8 +13,8 @@ function Congrats() {
     const confettiRef = useRef();
 
     useEffect(() =>{
-        setHeight(confettiRef.current.clientHeight);
-        setWidth(confettiRef.current.clientWidth);
+        setHeight(confettiRef.current.Height);
+        setWidth(confettiRef.current.Width);
     }, [])
 
     return (
