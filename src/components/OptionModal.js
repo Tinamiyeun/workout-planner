@@ -34,11 +34,10 @@ export function OptionModal(props) {
 
         // console.log(tempList)
         // console.log(yourPlan);
-        // alert("navigating")
     }
 
     const handleYesDown = () => {
-      setGoNext(true);
+        setGoNext(true);
         props.onHide();
         let tempList = [];
         yourPlan?.forEach((element) => {
@@ -53,12 +52,11 @@ export function OptionModal(props) {
 
         // console.log(tempList)
         // console.log(yourPlan);
-        // alert("navigating")
     }
 
     const handleNo = () => {
       setGoNext(true);
-        props.onHide();
+      props.onHide();
     }
 
     return (
@@ -70,16 +68,19 @@ export function OptionModal(props) {
     >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Would you like to adjust the weight for this plan?
+            Would you like to adjust the weight?
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {props.easy? 
-          <>Last time you think the plan is too easy, do you want to push yourself a little this time by increasing the weight?</>
-          :<>Last time you think the plan is too hard, do you want to reduce the weight this time?</>}
+          {props.comment === "too easy" || props.comment === "great"? 
+          <>Last time the plan is <strong>{props.comment}</strong>  for you! <br></br>
+          Do you want to push yourself a little this time by increasing the weight?</>
+          :
+          <>Last time the plan is <strong>{props.comment}</strong> for you! <br></br>
+          Do you want to reduce the weight?</>}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="warning" onClick={props.easy?handleYesUp:handleYesDown}>Yes</Button>
+          <Button variant="warning" onClick={props.comment === "too easy" || props.comment === "great"?handleYesUp:handleYesDown}>Yes</Button>
           <Button variant="warning" onClick={handleNo}>No</Button>
         </Modal.Footer>
       </Modal>

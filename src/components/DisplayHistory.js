@@ -17,7 +17,6 @@ function DisplayHistory() {
     const [showOptions, setShowOptions] = useState(false);
 
     const [yourPlan, setYourPlan] = useState([]);
-    // const [wantAdjust, setWantAdjust] = useState(false);
 
     const show = () => {        
         fetch("http://localhost:3001/history/get", {
@@ -75,7 +74,7 @@ function DisplayHistory() {
                 })}      
             </tbody>
         </Table>
-        <OptionModal show={showOptions} onHide={() => setShowOptions(false)} easy={selectedHistory.comment === "too easy"} yourPlan={yourPlan} setYourPlan={setYourPlan}/>
+        <OptionModal show={showOptions} onHide={() => setShowOptions(false)} comment={selectedHistory.comment} yourPlan={yourPlan} setYourPlan={setYourPlan}/>
         </>
     )
 }
