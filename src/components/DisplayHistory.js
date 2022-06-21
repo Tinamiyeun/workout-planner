@@ -70,7 +70,6 @@ function DisplayHistory() {
                         <td>
                         <Button variant="outline-warning" onClick={()=>{
                             handleUsePlanButton(history);
-                            alert(history.exercise_records);
                             }} >Use this plan</Button></td>
                     </tr>
                 })}      

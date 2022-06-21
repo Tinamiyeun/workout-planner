@@ -4,63 +4,62 @@ import { useNavigate } from 'react-router-dom';
 
 export function OptionModal(props) {
 
-    // const wantAdjust = props.wantAdjust;
-    // const setWantAdjust = props.setWantAdjust;
     const navigate = useNavigate();
     const yourPlan = props.yourPlan;
     const setYourPlan = props.setYourPlan;
-    const [clickYes, setClickYes] = useState(false);
-    let tempList = [];
+    const [goNext, setGoNext] = useState(false);
+    // useEffect(() =>{
+    //   window.sessionStorage.setItem('yourPlan', JSON.stringify(yourPlan));
+    //   console.log(yourPlan);
+    // },[yourPlan])
 
     useEffect(() =>{
-        
-        
-        
-        console.log(yourPlan);
+      window.sessionStorage.setItem('yourPlan', JSON.stringify(yourPlan));
+      if (goNext) navigate('/reuseplan');     
+    },[goNext])
 
-        window.sessionStorage.setItem('yourPlan', JSON.stringify(yourPlan));
-
-    },[yourPlan])
-
-    const handleYes = () => {
-        tempList = [];
-
+    const handleYesUp = () => {
+      setGoNext(true);
+        props.onHide();
+        let tempList = [];
         yourPlan?.forEach((element) => {
             tempList.push({
                 exercise: element.exercise,
-                weight: Math.floor(element.weight * 2),
+                weight: Math.floor(element.weight * 1.2),
                 rep: element.rep,
                 set: element.set
             })
         });
-        console.log(tempList)
         setYourPlan(tempList);
-        console.log(yourPlan);
-        props.onHide();
-        // setWantAdjust(true);
-        setClickYes(true);
-        navigate('/reuseplan');
 
-        
+        // console.log(tempList)
+        // console.log(yourPlan);
+        // alert("navigating")
     }
-    const handleNo = (callback) => {
-        // setWantAdjust(false);
+
+    const handleYesDown = () => {
+      setGoNext(true);
         props.onHide();
         let tempList = [];
-        yourPlan.forEach((element)=>{
+        yourPlan?.forEach((element) => {
             tempList.push({
                 exercise: element.exercise,
-                weight: Math.floor(element.weight * 0.9),
+                weight: Math.floor(element.weight * 0.8),
                 rep: element.rep,
                 set: element.set
             })
-        setYourPlan(tempList, callback);
-        })
-        navigate('/reuseplan');
+        });
+        setYourPlan(tempList);
+
+        // console.log(tempList)
+        // console.log(yourPlan);
+        // alert("navigating")
     }
 
-    // useEffect(() => {
-    // })
+    const handleNo = () => {
+      setGoNext(true);
+        props.onHide();
+    }
 
     return (
     <Modal
@@ -80,7 +79,7 @@ export function OptionModal(props) {
           :<>Last time you think the plan is too hard, do you want to reduce the weight this time?</>}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="warning" onClick={()=>{handleYes(()=>{console.log(yourPlan)})}}>Yes</Button>
+          <Button variant="warning" onClick={props.easy?handleYesUp:handleYesDown}>Yes</Button>
           <Button variant="warning" onClick={handleNo}>No</Button>
         </Modal.Footer>
       </Modal>
