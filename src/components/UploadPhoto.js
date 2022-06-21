@@ -6,8 +6,8 @@ function UploadPhoto(props){
     const[fileInputState, setFileInputState] = useState('');
     const[previewSource, setPreviewSource] = useState();
 
-    const[selectedFile, setSelectedFile] = useState('');
-
+    const selectedFile = props.photo;
+    const setSelectedFile = props.setPhoto;
     
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -32,7 +32,7 @@ function UploadPhoto(props){
 
     const uploadImage =  (base64EncodedImage) => {
         console.log(base64EncodedImage);
-        setSelectedFile(props.base64EncodedImage)
+        setSelectedFile(base64EncodedImage)
     }
 
     return (

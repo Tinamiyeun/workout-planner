@@ -10,8 +10,9 @@ import Container from 'react-bootstrap/Container';
 function PostWorkout(){
 
     const [comment, setComment] = useState('');
-    
-    
+    //add the photo state to send it to Save component(selectedFile)
+    const [selectedFile, setSelectedFile] = useState('');
+
     return <>
     <Congrats />
     <br/>
@@ -19,7 +20,10 @@ function PostWorkout(){
     <br/>
     <Container className="mt-3">
         <Row>
-            <Col><Save comment={comment} /></Col>
+            <Col><Save comment={comment}
+            
+            /></Col>
+            
         </Row>
     </Container>
     

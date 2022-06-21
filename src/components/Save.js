@@ -15,7 +15,10 @@ function Save(props) {
     
     const yourPlan = JSON.parse(window.sessionStorage.getItem('yourPlan'));
     const comment = props.comment;
-    const photo = props.selectedFile;
+
+    const [photo, setPhoto] = useState('');
+    
+
     React.useEffect(() => {
       console.log(photo);
     })
@@ -50,7 +53,7 @@ function Save(props) {
           <Form.Control type="file" name="photo" id="photo" />
         </Form> */}
         
-        <UploadPhoto />
+        <UploadPhoto  photo={photo} setPhoto={setPhoto} />
         <br/>
         <Button variant="warning" onClick={handleOnClick}>Save</Button>
         </div>
