@@ -35,7 +35,7 @@ export function ExerciseByBodyPart(props){
     return <div className="col-12">
         <div className="row">
             <div className="col-6 centerBox">
-                <Table bordered hover responsive="true" className='text-secondary'>
+                <Table bordered responsive="true" className='text-secondary'>
                     <thead>
                     <tr>
                         <th>Exercise name</th>
