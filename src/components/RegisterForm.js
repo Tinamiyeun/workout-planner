@@ -15,7 +15,7 @@ export function RegisterForm(){
     const passwordRef = useRef();
     const vipRef = useRef();
     const navigate = useNavigate();
-    const url = 'https://frontendlimitless.herokuapp.com'
+    const url = process.env.REACT_APP_SERVER_URL  ||'http://localhost:3001'
     const handleSubmit = (event) => {
 
         event.preventDefault();

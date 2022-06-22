@@ -19,7 +19,7 @@ function PlanChoices() {
     const [isLoggedIn,setIsLoggedIn] = useContext(LoggedInContext);
 
 
-    let backend = process.env.REACT_APP_SERVER_URL;
+    let backend = process.env.REACT_APP_SERVER_URL  ||'http://localhost:3001'
     const add = async () => {
         try{
             const res = await fetch(backend+"/get", { method: "GET" })

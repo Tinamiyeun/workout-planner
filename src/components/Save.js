@@ -16,7 +16,7 @@ function Save(props) {
       console.log(e.target.files[0])
       setPhoto(e.target.files[0]);
     }
-    const url = 'https://frontendlimitless.herokuapp.com'
+    const url = process.env.REACT_APP_SERVER_URL  ||'http://localhost:3001'
     const handleOnClick = (event) => {
 
      let data = new FormData();

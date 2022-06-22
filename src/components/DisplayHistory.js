@@ -16,7 +16,7 @@ function DisplayHistory() {
     const [showOptions, setShowOptions] = useState(false);
 
     const [yourPlan, setYourPlan] = useState([]);
-    const url = 'https://frontendlimitless.herokuapp.com'
+    const url = process.env.REACT_APP_SERVER_URL  ||'http://localhost:3001'
     const show = () => {        
         fetch(url+"/history/get", {
             method: 'POST',
@@ -61,7 +61,7 @@ function DisplayHistory() {
                         })}</ul></td>
                         <td>{history.date}</td>
                         <td>{history.comment}</td>
-                        <td><img src={process.env.REACT_APP_SERVER_URL+"/"+history.photo} alt="" width={250} height={250} /></td>
+                        <td><img src={url+"/"+history.photo} alt="" width={250} height={250} /></td>
                         <td>
                         <Button variant="outline-warning" onClick={()=>{
                             handleUsePlanButton(history);
