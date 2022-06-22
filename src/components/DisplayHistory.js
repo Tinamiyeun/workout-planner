@@ -61,7 +61,7 @@ function DisplayHistory() {
                         })}</ul></td>
                         <td>{history.date}</td>
                         <td>{history.comment}</td>
-                        <td><img src={url+"/"+history.photo} alt="" width={250} height={250} /></td>
+                        <td>{history.photo? <img src={url+"/"+history.photo} alt="" width={250} height={250} />:''}</td>
                         <td>
                         <Button variant="outline-warning" onClick={()=>{
                             handleUsePlanButton(history);

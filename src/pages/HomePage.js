@@ -2,16 +2,31 @@ import img1 from "../img/img1.jpg";
 import img2 from "../img/img2.jpg";
 import img3 from "../img/img3.jpg";
 import Styled from "styled-components";
+import { Link } from "react-router-dom";
+import '../css/about.css'
+import { useContext } from "react";
+import { LoggedInContext } from "App";
+import { VipContext } from "contexts/VipContext";
 
 function HomePage() {
+    const[isLoggedIn,setIsLoggedIn] = useContext(LoggedInContext);
+    const[isVip, setIsVip] = useContext(VipContext);
 
     return (
         <Wrapper>
             <img src={img1} alt="placeholder"/>                
             <SignUp>
-                <h1>
-                    Sign up for more features
-                </h1>
+                {!isLoggedIn?
+                <Link to='/register' className="link">
+                    <h1>Sign up for more features</h1>
+                </Link>:
+                isVip? 
+                '':
+                <Link to='/upgrade' className="link">
+                <h1>Upgrade for more features</h1>
+                </Link>
+                }
+                
             </SignUp>
             <Box className="my-3">
                 <Box1><h2>Follow the plan</h2></Box1>

@@ -134,7 +134,7 @@ export function YourPlan(props){
                 <tbody>
                 {yourPlan && yourPlan.map((item, index) => {
                     return (
-                        <tr>
+                        <tr key={item.exercise.id}>
                             <td>{count++}</td>
                             <td>{item.exercise.name}</td>
                             <td><div className="tabBtns">
