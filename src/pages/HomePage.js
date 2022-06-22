@@ -2,6 +2,8 @@ import img1 from "../img/img1.jpg";
 import img2 from "../img/img2.jpg";
 import img3 from "../img/img3.jpg";
 import Styled from "styled-components";
+import { Link } from "react-router-dom";
+import '../css/about.css'
 
 function HomePage() {
 
@@ -9,9 +11,9 @@ function HomePage() {
         <Wrapper>
             <img src={img1} alt="placeholder"/>                
             <SignUp>
-                <h1>
-                    Sign up for more features
-                </h1>
+                <Link to='/register' className="link">
+                    <h1>Sign up for more features</h1>
+                </Link>
             </SignUp>
             <Box className="my-3">
                 <Box1><h2>Follow the plan</h2></Box1>
