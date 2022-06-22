@@ -26,10 +26,10 @@ export function YourPlan(props){
         window.sessionStorage.setItem('yourPlan', JSON.stringify(yourPlan));
     },[yourPlan]);               
 
-    useEffect(()=>{
-        //plan && yourPlan = [...yourPlan, plan];
-        console.log(yourPlan)
-    },[yourPlan])
+    // useEffect(()=>{
+    //     //plan && yourPlan = [...yourPlan, plan];
+    //     console.log(yourPlan)
+    // },[yourPlan])
 
     const minusWeight = (item, index)=>{
 

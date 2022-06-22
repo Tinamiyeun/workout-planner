@@ -1,7 +1,7 @@
 import React, { useRef, useContext, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import {LoggedInContext} from "../App";
-import {useNavigate} from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import { VipContext } from 'contexts/VipContext';
 import { Form } from 'react-bootstrap';
 import {UserNameContext} from '../contexts/UserNameContext';
@@ -32,14 +32,14 @@ export function LoginForm(){
             })
             .then((data) => data.json())
             .then((json) => {
-                console.log(json);
+                // console.log(json);
                 if (json.success){
-                    console.log(json.user.username);
+                    // console.log(json.user.username);
                     setUserName(json.user.username);
-                    console.log(json.user.vip);
+                    // console.log(json.user.vip);
                     setIsLoggedIn(true);
-                    alert("Logged in!" + userName);
-                    console.log(userName);
+                    alert("Logged in!" + json.user.username);
+                    // console.log(userName);
                     if (json.user.vip){
                         setIsVip(true);
                         navigate("/customizeplan")
@@ -53,18 +53,16 @@ export function LoginForm(){
                     navigate("/login")
                 }
               })}
-              React.useEffect(() => {
+            //   React.useEffect(() => {
 
-                console.log(userName)
+            //     console.log(userName)
                 
-                })
+            //     })
 
-        // useEffect(() => {
-        //     console.log(userName)
-        // })
     return (
         <div className="container col-4">
             <h3>Login</h3>
+            <p>Doesn't have an account? <NavLink to="/register">Click here to register.</NavLink></p>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formUserName">
                     <Form.Label >Username</Form.Label>

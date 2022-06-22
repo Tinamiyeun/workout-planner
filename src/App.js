@@ -20,10 +20,6 @@ import { Upgrade } from 'pages/Upgrade';
 import BeginnerPlanEdit from 'components/BeginnerPlanEdit';
 import { ReusePlan } from 'pages/ReusePlan';
 
-// import { ThemeContext } from 'styled-components';
-
-export const ThemeContext = createContext(null);
-
 export const LoggedInContext = React.createContext({
   isLoggedIn:false,
   setIsLoggedIn: () =>{},
@@ -40,11 +36,11 @@ function App() {
       setTheme('light');
     }
   }
-  React.useEffect(() => {
+  // React.useEffect(() => {
 
-    console.log({theme})
+  //   console.log({theme})
     
-    })
+  //   })
 
   const [isLoggedIn,setIsLoggedIn] = useState(false);
   const loggedInValueToProvide = [isLoggedIn, setIsLoggedIn];
@@ -60,7 +56,7 @@ function App() {
       <>
       <GlobalStyles />
       <Switch onChange={toggleTheme} checked={theme === "dark"} label="light/dark mode" />
-    <LoggedInContext.Provider value = {loggedInValueToProvide}>
+      <LoggedInContext.Provider value = {loggedInValueToProvide}>
       <VipContext.Provider value = {vipToProvide}>
         <UserNameContext.Provider value = {userNameToProvide}>
           <Routes>

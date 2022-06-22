@@ -1,7 +1,5 @@
-import { ExerciseByBodyPart } from 'components/ExerciseByBodyPart';
 import { YourPlan } from 'components/YourPlan';
 import React, { useState } from 'react';
-import {HistoryReuse, UsePlan} from '../components/HistoryReuse';
 
 export function ReusePlan(){
     //For the gated access: const [isLoggedIn,setIsLoggedIn] = useContext(LoggedInContext);

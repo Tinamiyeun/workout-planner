@@ -33,7 +33,7 @@ import { Card } from 'react-bootstrap';
     }, [urlList])
 
     useEffect (() => {
-        console.log(exerciseName);
+        // console.log(exerciseName);
     }, [exerciseName])
 
     const addUrl = () => {
@@ -47,7 +47,7 @@ import { Card } from 'react-bootstrap';
             setUrlList(tempUrl);
             setLoading(true);
         } catch (e) {
-            console.log(e)
+            // console.log(e)
         }
     }
 
@@ -57,7 +57,7 @@ import { Card } from 'react-bootstrap';
                 method: 'GET',
                 url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
                 headers: {
-                  'X-RapidAPI-Key': '830b4b8052mshc4fa4449a8a9a2ep1a1956jsn99856bf7a0d8',
+                  'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
                   'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
                 }
             }
@@ -76,8 +76,8 @@ import { Card } from 'react-bootstrap';
                     planList.push({...data, weight: 0, rep: 8, set: 4})
                 }
                 setExerciseName(storedLevelPlan);
-                console.log(exerciseName);
-                console.log(storedLevelPlan);
+                // console.log(exerciseName);
+                // console.log(storedLevelPlan);
             }
             setYourPlan(planList);
             setLoading(true);
@@ -92,7 +92,7 @@ import { Card } from 'react-bootstrap';
             !storedLevelPlan && window.localStorage.setItem(props.level.toLowerCase() + 'Plan', JSON.stringify(yourPlan)); 
             isVip ? navigate("/customizeplan") : navigate("/editbeginnerplan");
         } catch (e) {
-            console.log(e);
+            // console.log(e);
         }
     }
 

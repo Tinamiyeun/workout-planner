@@ -30,7 +30,7 @@ function DisplayHistory() {
         })
         .then((data) => data.json())
         .then((json) => {setHistories(JSON.parse(JSON.stringify(json)))
-            console.log(histories)
+            // console.log(histories)
         });
     };
     useEffect(() => {

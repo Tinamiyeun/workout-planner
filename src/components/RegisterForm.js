@@ -1,7 +1,7 @@
 import { LoggedInContext } from '../App';
 import React, { useRef, useContext } from 'react';
 import Button from 'react-bootstrap/Button';
-import {useNavigate} from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import { VipContext } from 'contexts/VipContext';
 import { Form } from 'react-bootstrap';
 
@@ -49,6 +49,7 @@ export function RegisterForm(){
     return (
         <div  className="container col-4">
         <h3>Register</h3>
+        <p>Already have an account? <NavLink to="/login">Click here to login.</NavLink></p>
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mt-3">
                 <Form.Label htmlFor={usernameRef}>Username</Form.Label>

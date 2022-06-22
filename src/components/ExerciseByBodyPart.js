@@ -1,9 +1,10 @@
 import { Table,Button } from 'react-bootstrap';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { GifModal } from './GifModal';
 import { YourPlan } from './YourPlan';
 
 export function ExerciseByBodyPart(props){
+    //props: exercises
     const plan = sessionStorage.getItem('yourPlan');
     const [showGif, setShowGif] = useState(false);
     const [yourPlan, setYourPlan] = useState(() => plan? JSON.parse(plan) : []);
@@ -27,10 +28,10 @@ export function ExerciseByBodyPart(props){
         }
     }
 
-    useEffect(() => {
-        console.log(yourPlan);
-        console.log(plan);
-    }, [yourPlan])
+    // useEffect(() => {
+    //     console.log(yourPlan);
+    //     console.log(plan);
+    // }, [yourPlan])
 
     return <div className="col-12">
         <div className="row">
