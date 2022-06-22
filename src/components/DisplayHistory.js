@@ -37,10 +37,6 @@ function DisplayHistory() {
         show();
     }, [])
 
-    // useEffect(() => {
-    //     console.log(selectedHistory)
-    // },[selectedHistory])
-
     const handleUsePlanButton = (history) => {
         setSelectedHistory(history);
         setYourPlan(history.exercise_records);
@@ -67,7 +63,7 @@ function DisplayHistory() {
                         })}</ul></td>
                         <td>{history.date}</td>
                         <td>{history.comment}</td>
-                        <td><img src={history.photo} alt="" /></td>
+                        <td><img src={process.env.REACT_APP_SERVER_URL+history.photo} alt="" width={250} height={250} /></td>
                         <td>
                         <Button variant="outline-warning" onClick={()=>{
                             handleUsePlanButton(history);
@@ -81,17 +77,4 @@ function DisplayHistory() {
     )
 }
 
-
-
-
 export default DisplayHistory;
-
-// onClick={()=>{ 
-//     if({history.comment} === "too easy" ){         
-//         alert("do you want to increase the weight?")
-//     }else if({comment} === "too hard" ){ 
-//         alert("do you want to reduce the weight?")
-//     }else{
-//         navigate("/")
-//     }
-// }}
