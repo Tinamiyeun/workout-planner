@@ -4,12 +4,14 @@ This is a project that aim to provide a workout planner to normal and vip users 
 
 This is the front end of the application and it uses React.
 
-In the Project directory, you can run:
+In the Project directory, 
 
 create a .env file, and paste these line in it:
 
 REACT_APP_RAPID_API_KEY=ee3632c55amsh1871b7ef5e15bb0p1bc756jsn703f0f787969
 REACT_APP_SERVER_URL='http://localhost:3001'
+
+Then you can run:
 
 npm start
 
