@@ -1,5 +1,5 @@
 import Button from 'react-bootstrap/Button';
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useRef, useEffect} from 'react';
 import { UserNameContext } from 'contexts/UserNameContext';
 import {useNavigate} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
@@ -17,36 +17,47 @@ function Save(props) {
 
     const [photo, setPhoto] = useState([]);
     const onPhotoChange = (e) => {
-      setPhoto([...e.target.files[0]]);
+      console.log(e.target.files[0])
+      setPhoto(e.target.files[0]);
     }
-   
     const handleOnClick = (event) => {
-      
+
+     let data = new FormData();
+     data.append('username', userName);
+     data.append('comment', comment);
+     data.append('date', new Date());
+     data.append('photo', photo);
+     data.append('exercise_records', JSON.stringify(yourPlan));
+
+
         fetch("http://localhost:3001/history", {
         method: "POST",
-        body: JSON.stringify({//pass the value of input field here
-          username: userName,
-          comment: comment,
-          date: new Date(),
-          photo: setPhoto,
-          exercise_records: yourPlan,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
+        body: data,
+        // body: JSON.stringify({//pass the value of input field here
+        //   username: userName,
+        //   comment: comment,
+        //   date: new Date(),
+        //   photo: photo,
+        //   exercise_records: yourPlan,
+        // }),
+        // headers: {
+        //   "Content-type": "application/json; charset=UTF-8",
+        // },
       })
         .then((data) => data.json());
       
       navigate('/history');
 
     }
-    
+    useEffect(() =>{
+      console.log(photo);
+    },[photo])
 
     return (
         <div className="container col-6">
         <Form encType="multipart/form-data">
           <Form.Label htmlFor="photo">Upload photo</Form.Label>
-          <Form.Control type="file" name="image" />
+          <Form.Control type="file" name="photo" onChange={onPhotoChange} />
         
         <br/>
         <Button variant="warning" onClick={handleOnClick}>Save</Button>
