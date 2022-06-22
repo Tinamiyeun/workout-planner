@@ -32,10 +32,6 @@ import { Card } from 'react-bootstrap';
         fetchNames();
     }, [urlList])
 
-    useEffect (() => {
-        // console.log(exerciseName);
-    }, [exerciseName])
-
     const addUrl = () => {
         try{
             let tempUrl = [];
@@ -76,8 +72,6 @@ import { Card } from 'react-bootstrap';
                     planList.push({...data, weight: 0, rep: 8, set: 4})
                 }
                 setExerciseName(storedLevelPlan);
-                // console.log(exerciseName);
-                // console.log(storedLevelPlan);
             }
             setYourPlan(planList);
             setLoading(true);

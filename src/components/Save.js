@@ -7,10 +7,6 @@ import Form from 'react-bootstrap/Form';
 function Save(props) {
     let navigate = useNavigate();
     const [userName, setUserName] = useContext(UserNameContext);
-
-    // React.useEffect(() => {
-    //     console.log({userName})       
-    //     })    
     
     const yourPlan = JSON.parse(window.sessionStorage.getItem('yourPlan'));
     const comment = props.comment;
@@ -24,7 +20,7 @@ function Save(props) {
       
         fetch("http://localhost:3001/history", {
         method: "POST",
-        body: JSON.stringify({//pass the value of input field here
+        body: JSON.stringify({
           username: userName,
           comment: comment,
           date: new Date(),

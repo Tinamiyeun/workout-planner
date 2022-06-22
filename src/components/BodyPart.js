@@ -15,7 +15,6 @@ export function BodyPart(){
 
     const showExercises = (body) => {
         const filterdExercises = allExercises.filter((exercise)=>exercise.bodyPart.includes(body));
-        // console.log(filterdExercises);
         setExercises(filterdExercises);
     }
 

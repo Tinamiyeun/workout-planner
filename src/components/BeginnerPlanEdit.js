@@ -11,11 +11,7 @@ function BeginnerPlanEdit () {
     const [isLoggedIn,setIsLoggedIn] = useContext(LoggedInContext);
 
     const [yourPlan, setYourPlan] = useState(plan);
-    // useEffect(() => {
-    //     //console.log(yourPlan);
-    //     console.log(plan);
-        
-    // }, [])
+
     return (
         <>
             {isLoggedIn ? 

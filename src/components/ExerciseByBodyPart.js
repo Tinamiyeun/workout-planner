@@ -28,11 +28,6 @@ export function ExerciseByBodyPart(props){
         }
     }
 
-    // useEffect(() => {
-    //     console.log(yourPlan);
-    //     console.log(plan);
-    // }, [yourPlan])
-
     return <div className="col-12">
         <div className="row">
             <div className="col-6 centerBox">

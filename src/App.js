@@ -36,11 +36,6 @@ function App() {
       setTheme('light');
     }
   }
-  // React.useEffect(() => {
-
-  //   console.log({theme})
-    
-  //   })
 
   const [isLoggedIn,setIsLoggedIn] = useState(false);
   const loggedInValueToProvide = [isLoggedIn, setIsLoggedIn];

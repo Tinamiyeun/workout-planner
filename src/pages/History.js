@@ -10,10 +10,6 @@ function History() {
     const [userName, setUserName] = useContext(UserNameContext);
     const [isLoggedIn,setIsLoggedIn] = useContext(LoggedInContext);
 
-    // React.useEffect(() => {
-    //     console.log({userName})       
-    //     })    
-
     return ( 
     <>
         {isLoggedIn ? 

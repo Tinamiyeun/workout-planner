@@ -10,11 +10,6 @@ export function PlanList(){
     })
     const plan = JSON.parse(yourPlan);
 
-    // useEffect(() =>{
-    //     console.log(currentExc);
-    // },[currentExc])
-
-
     return <div className='p-3'>
                 <div className='row'>
                     <div className='col-md-3'>
@@ -28,7 +23,6 @@ export function PlanList(){
                                                 <Table className='table-borderless m-0 mt-1 border text-secondary'>
                                                     <tbody  className='planlist-table'>
                                                         {[...Array(item.set)].map((temp, j) => {
-                                                            // how to make key unique, item.exercise.id + j
                                                             return <tr key={item.exercise.id + j} className={currentExc.exc === excIndex && currentExc.set === j ? 'bg-warning' : ''}>
 
                                                                 <td>{j + 1}</td>

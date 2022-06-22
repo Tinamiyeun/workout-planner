@@ -4,7 +4,6 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import {useNavigate} from 'react-router-dom';
 import { OptionModal } from './OptionModal';
-//import WeightModal from 'components/WeightModal';
 
 function DisplayHistory() {
     const navigate = useNavigate();
@@ -30,16 +29,11 @@ function DisplayHistory() {
         })
         .then((data) => data.json())
         .then((json) => {setHistories(JSON.parse(JSON.stringify(json)))
-            // console.log(histories)
         });
     };
     useEffect(() => {
         show();
     }, [])
-
-    // useEffect(() => {
-    //     console.log(selectedHistory)
-    // },[selectedHistory])
 
     const handleUsePlanButton = (history) => {
         setSelectedHistory(history);
@@ -83,13 +77,3 @@ function DisplayHistory() {
 
 
 export default DisplayHistory;
-
-// onClick={()=>{ 
-//     if({history.comment} === "too easy" ){         
-//         alert("do you want to increase the weight?")
-//     }else if({comment} === "too hard" ){ 
-//         alert("do you want to reduce the weight?")
-//     }else{
-//         navigate("/")
-//     }
-// }}

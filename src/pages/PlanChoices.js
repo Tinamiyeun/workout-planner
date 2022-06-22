@@ -43,7 +43,6 @@ function PlanChoices() {
             setExpertData([allData[2]]);
         }
         setLevel();
-        //console.log(allData);
     },[allData])
     
     useEffect (() => {

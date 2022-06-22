@@ -32,14 +32,10 @@ export function LoginForm(){
             })
             .then((data) => data.json())
             .then((json) => {
-                // console.log(json);
                 if (json.success){
-                    // console.log(json.user.username);
                     setUserName(json.user.username);
-                    // console.log(json.user.vip);
                     setIsLoggedIn(true);
                     alert("Logged in!" + json.user.username);
-                    // console.log(userName);
                     if (json.user.vip){
                         setIsVip(true);
                         navigate("/customizeplan")
@@ -53,11 +49,6 @@ export function LoginForm(){
                     navigate("/login")
                 }
               })}
-            //   React.useEffect(() => {
-
-            //     console.log(userName)
-                
-            //     })
 
     return (
         <div className="container col-4">

@@ -42,7 +42,6 @@ export function RegisterForm(){
                                 navigate("/register");
                             }
                                         
-            // json.success ? navigate("/customizeplan") : navigate("/")
             })
     }
 

@@ -8,10 +8,6 @@ export function OptionModal(props) {
     const yourPlan = props.yourPlan;
     const setYourPlan = props.setYourPlan;
     const [goNext, setGoNext] = useState(false);
-    // useEffect(() =>{
-    //   window.sessionStorage.setItem('yourPlan', JSON.stringify(yourPlan));
-    //   console.log(yourPlan);
-    // },[yourPlan])
 
     useEffect(() =>{
       window.sessionStorage.setItem('yourPlan', JSON.stringify(yourPlan));

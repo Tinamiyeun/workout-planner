@@ -4,10 +4,9 @@ import { useNavigate } from 'react-router-dom';
 ;
 export function YourPlan(props){
     const plan = sessionStorage.getItem('yourPlan');
-    //const yourPlan = plan? JSON.parse(plan) : props.yourPlan;
-    //const [yourPlan, setYourPlan] = useState([props.yourPlan]);
     const yourPlan =  props.yourPlan;
     const setYourPlan = props.setYourPlan; 
+
     let count = 1;
 
     const handleDelete = (index) => {
@@ -25,11 +24,6 @@ export function YourPlan(props){
     useEffect(()=>{
         window.sessionStorage.setItem('yourPlan', JSON.stringify(yourPlan));
     },[yourPlan]);               
-
-    // useEffect(()=>{
-    //     //plan && yourPlan = [...yourPlan, plan];
-    //     console.log(yourPlan)
-    // },[yourPlan])
 
     const minusWeight = (item, index)=>{
 
