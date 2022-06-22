@@ -4,7 +4,7 @@ This is a project that aim to provide a workout planner to normal and vip users 
 
 This is the front end of the application and it uses React.
 
-In the Project directory, 
+In the Project directory,
 
 create a .env file, and paste these line in it:
 
