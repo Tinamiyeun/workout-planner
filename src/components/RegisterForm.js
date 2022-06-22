@@ -4,12 +4,13 @@ import Button from 'react-bootstrap/Button';
 import {NavLink, useNavigate} from 'react-router-dom';
 import { VipContext } from 'contexts/VipContext';
 import { Form } from 'react-bootstrap';
+import { UserNameContext } from 'contexts/UserNameContext';
 
 export function RegisterForm(){
 
     const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
     const [isVip, setIsVip] = useContext(VipContext);
-
+    const [userName, setUserName] = useContext(UserNameContext);
     const usernameRef = useRef();
     const passwordRef = useRef();
     const vipRef = useRef();
@@ -35,6 +36,7 @@ export function RegisterForm(){
                             {alert(json.msg);
                             if (json.success) {
                                 setIsLoggedIn(true);
+                                setUserName(usernameRef.current.value);
                                 vipRef.current.checked ? setIsVip(true) : setIsVip(false);
                                 vipRef.current.checked ? navigate("/customizeplan") : navigate("/");
                             }  else{
