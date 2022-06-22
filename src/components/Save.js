@@ -1,5 +1,5 @@
 import Button from 'react-bootstrap/Button';
-import React, {useState, useContext, useRef, useEffect} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import { UserNameContext } from 'contexts/UserNameContext';
 import {useNavigate} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
@@ -53,7 +53,7 @@ function Save(props) {
         <div className="container col-6">
         <Form encType="multipart/form-data">
           <Form.Label htmlFor="photo">Upload photo</Form.Label>
-          <Form.Control type="file" name="photo" onChange={onPhotoChange} />
+          <Form.Control type="file" name="photo" accept=".png, .jpg, .jpeg" onChange={onPhotoChange} />
         
         <br/>
         <Button variant="warning" onClick={handleOnClick}>Save</Button>
