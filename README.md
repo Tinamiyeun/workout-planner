@@ -36,3 +36,5 @@ npm install react-bootstrap bootstrap
 npm install react-icons --save
 
 npm install react-confetti
+
+npm install --save styled-components
