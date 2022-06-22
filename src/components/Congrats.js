@@ -18,6 +18,11 @@ function Congrats() {
     }, [])
 
     return (
+        <>
+        <Confetti
+                numberOfPieces={90}
+                width={width}
+                height={height} />
         <Container>
             <Card className="text-center" ref={confettiRef}>
                 <Card.Body>
@@ -25,11 +30,9 @@ function Congrats() {
                     <Card.Text>A step closer to your goal!</Card.Text>
                 </Card.Body>
             </Card>
-            <Confetti
-                numberOfPieces={80}
-                width={width}
-                height={height} />
+            
         </Container>
+        </>
     )
 }
 
