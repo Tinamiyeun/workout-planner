@@ -11,7 +11,7 @@ import { Navigate } from 'react-router-dom';
 
 function PostWorkout(){
 
-    const [comment, setComment] = useState('');
+    const [comment, setComment] = useState('great');
     const [isLoggedIn,setIsLoggedIn] = useContext(LoggedInContext);
     
     return <>
