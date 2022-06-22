@@ -40,7 +40,7 @@ function DisplayHistory() {
         setYourPlan(history.exercise_records);
         setShowOptions(true);
     }
-
+    
     return (
         <>
         <Table responsive='true' className="text-secondary">
@@ -49,6 +49,7 @@ function DisplayHistory() {
                 <th>Workout history</th>
                 <th>Date and time</th>
                 <th>Comment</th>
+                <th>Photo</th>
                 <th>Action</th>
                 </tr>
             </thead>
@@ -60,6 +61,7 @@ function DisplayHistory() {
                         })}</ul></td>
                         <td>{history.date}</td>
                         <td>{history.comment}</td>
+                        <td><img src={process.env.REACT_APP_SERVER_URL+history.photo} alt="" width={250} height={250} /></td>
                         <td>
                         <Button variant="outline-warning" onClick={()=>{
                             handleUsePlanButton(history);
@@ -72,8 +74,5 @@ function DisplayHistory() {
         </>
     )
 }
-
-
-
 
 export default DisplayHistory;
