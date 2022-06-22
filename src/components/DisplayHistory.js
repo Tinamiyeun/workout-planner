@@ -61,7 +61,7 @@ function DisplayHistory() {
                         })}</ul></td>
                         <td>{history.date}</td>
                         <td>{history.comment}</td>
-                        <td><img src={process.env.REACT_APP_SERVER_URL+"/"+history.photo} alt="" width={250} height={250} /></td>
+                        <td><img src={process.env.REACT_APP_SERVER_URL+"/"+history.photo} alt="" width={200} height={200} /></td>
                         <td>
                         <Button variant="outline-warning" onClick={()=>{
                             handleUsePlanButton(history);
