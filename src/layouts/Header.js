@@ -31,6 +31,7 @@ function Header() {
                         <li className="me-5 li-header"><NavLink className="navlink-header" to="/upgrade">Create Your Own Plan</NavLink></li>
                         <li className="me-5 li-header"><NavLink className="navlink-header" to="/loggedin">Plans</NavLink></li>
                         <li className="me-5 li-header"><NavLink className="navlink-header" to="/upgrade">Upgrade To VIP</NavLink></li>
+                        <li className="me-5 li-header"><NavLink className="navlink-header" to="history">History</NavLink></li>
 
                         <li className="me-5 li-header"><LogoutButton /></li></>
                     : 

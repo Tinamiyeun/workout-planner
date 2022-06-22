@@ -27,6 +27,7 @@ export function BecomeVip(){
             .then((data) => data.json())
             .then((json)=> {
                 json.success? setIsVip(true): setIsVip(false);
+                sessionStorage.removeItem('yourPlan');
                 json.success? alert("Congratulations! You are a VIP now!"): alert("unsuccessful!");
                 json.success? navigate('/customizeplan'): navigate('/');
             })
