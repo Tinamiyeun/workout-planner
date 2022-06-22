@@ -15,12 +15,12 @@ export function RegisterForm(){
     const passwordRef = useRef();
     const vipRef = useRef();
     const navigate = useNavigate();
-
+    const url = 'http://frontendlimitless.herokuapp.com'
     const handleSubmit = (event) => {
 
         event.preventDefault();
 
-        fetch("http://localhost:3001/users/register", {
+        fetch(url+"/users/register", {
             method: "POST",
             body: JSON.stringify({
             username: usernameRef.current.value,

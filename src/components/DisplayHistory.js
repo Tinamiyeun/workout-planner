@@ -16,9 +16,9 @@ function DisplayHistory() {
     const [showOptions, setShowOptions] = useState(false);
 
     const [yourPlan, setYourPlan] = useState([]);
-
+    const url = 'http://frontendlimitless.herokuapp.com'
     const show = () => {        
-        fetch("http://localhost:3001/history/get", {
+        fetch(url+"/history/get", {
             method: 'POST',
             body: JSON.stringify({
                 username: userName

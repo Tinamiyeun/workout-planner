@@ -16,6 +16,7 @@ function Save(props) {
       console.log(e.target.files[0])
       setPhoto(e.target.files[0]);
     }
+    const url = 'http://frontendlimitless.herokuapp.com'
     const handleOnClick = (event) => {
 
      let data = new FormData();
@@ -26,7 +27,7 @@ function Save(props) {
      data.append('exercise_records', JSON.stringify(yourPlan));
 
 
-        fetch("http://localhost:3001/history", {
+        fetch(url+"/history", {
         method: "POST",
         body: data,
         // body: JSON.stringify({//pass the value of input field here
