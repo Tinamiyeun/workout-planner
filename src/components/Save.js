@@ -16,7 +16,7 @@ function Save(props) {
       console.log(e.target.files[0])
       setPhoto(e.target.files[0]);
     }
-    const url = 'http://frontendlimitless.herokuapp.com'
+    const url = 'https://frontendlimitless.herokuapp.com'
     const handleOnClick = (event) => {
 
      let data = new FormData();

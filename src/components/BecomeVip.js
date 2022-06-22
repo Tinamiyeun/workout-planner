@@ -11,7 +11,7 @@ export function BecomeVip(){
     const [isVip, setIsVip] = useContext(VipContext);
     const [username, setUserName] = useContext(UserNameContext);
     const navigate = useNavigate();
-    const url = 'http://frontendlimitless.herokuapp.com'
+    const url = 'https://frontendlimitless.herokuapp.com'
     const handleSubmit = (event) => {
         event.preventDefault();
 

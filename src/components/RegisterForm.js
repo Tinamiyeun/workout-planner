@@ -15,7 +15,7 @@ export function RegisterForm(){
     const passwordRef = useRef();
     const vipRef = useRef();
     const navigate = useNavigate();
-    const url = 'http://frontendlimitless.herokuapp.com'
+    const url = 'https://frontendlimitless.herokuapp.com'
     const handleSubmit = (event) => {
 
         event.preventDefault();
