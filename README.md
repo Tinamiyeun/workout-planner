@@ -6,6 +6,11 @@ This is the front end of the application and it uses React.
 
 In the Project directory, you can run:
 
+create a .env file, and paste these line in it:
+
+REACT_APP_RAPID_API_KEY=ee3632c55amsh1871b7ef5e15bb0p1bc756jsn703f0f787969
+REACT_APP_SERVER_URL='http://localhost:3001'
+
 npm start
 
 Runs the application in the development mode.
@@ -23,6 +28,9 @@ We are using React Router, please use this command line to install it:
 npm i react-router-dom
 
 For the best view, please add these dependencies (React Bootstrap, React Icons, and React confetti):
+
 npm install react-bootstrap bootstrap
+
 npm install react-icons --save
+
 npm install react-confetti
