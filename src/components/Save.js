@@ -42,7 +42,7 @@ function Save(props) {
       })
         .then((data) => data.json());
       
-      navigate('/history');
+      navigate('/');
 
     }
     useEffect(() =>{
