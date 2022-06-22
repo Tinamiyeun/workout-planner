@@ -1,7 +1,5 @@
 import { Modal, Button } from 'react-bootstrap';
 
-
-
 export function GifModal(props) {
     return (
       <Modal

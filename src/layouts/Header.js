@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { LoggedInContext } from "App";
 import { VipContext } from "contexts/VipContext";
-import { LogoutButton } from "./LogoutButton";
+import { LogoutButton } from "../components/LogoutButton";
 import '../css/bodyPart.css'
 import { UserNameContext } from "../contexts/UserNameContext";
 

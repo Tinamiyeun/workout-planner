@@ -8,9 +8,9 @@ function Save(props) {
     let navigate = useNavigate();
     const [userName, setUserName] = useContext(UserNameContext);
 
-    React.useEffect(() => {
-        console.log({userName})       
-        })    
+    // React.useEffect(() => {
+    //     console.log({userName})       
+    //     })    
     
     const yourPlan = JSON.parse(window.sessionStorage.getItem('yourPlan'));
     const comment = props.comment;

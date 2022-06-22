@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useContext} from 'react';
 import { UserNameContext } from 'contexts/UserNameContext';
 import DisplayHistory from 'components/DisplayHistory';
 import Container from 'react-bootstrap/Container';

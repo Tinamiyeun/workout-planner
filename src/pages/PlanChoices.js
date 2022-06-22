@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PlannedList from 'components/PlannedList';
 import {LoggedInContext} from "../App";
-import { useFetchDB } from 'hooks/useFetchDb';
 import Spinner from 'react-bootstrap/Spinner';
-import { Navigate } from 'react-router-dom';
 import SuggestVip from '../components/SuggestVip';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -31,7 +29,7 @@ function PlanChoices() {
             setAllData(data);
             
         } catch (e) {
-            console.log(e);
+            // console.log(e);
         }
     }
     useEffect(() => {

@@ -32,8 +32,6 @@ export function OptionModal(props) {
         });
         setYourPlan(tempList);
 
-        // console.log(tempList)
-        // console.log(yourPlan);
     }
 
     const handleYesDown = () => {
@@ -50,8 +48,6 @@ export function OptionModal(props) {
         });
         setYourPlan(tempList);
 
-        // console.log(tempList)
-        // console.log(yourPlan);
     }
 
     const handleNo = () => {
